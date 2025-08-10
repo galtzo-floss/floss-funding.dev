@@ -47,8 +47,15 @@ group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
+  # Linting
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
+  #gem "rubocop-rails-omakase", require: false
+  gem "betterlint"
+  gem "rubocop-lts", "~> 24.0", ">= 24.0.2"
+  gem "standard-rails"
+
+  # Testing
+  gem "rspec-block_is_expected", "~> 1.0", ">= 1.0.6"
 end
 
 group :development do
@@ -69,3 +76,7 @@ gem "litestream", "~> 0.14.0"
 gem "redis", "~> 5.4"
 
 gem "aws-sdk-s3", "~> 1.196", require: false
+
+gem "flag_shih_tzu", "~> 0.3.23"
+gem "sanitize_email", "~> 2.0", ">= 2.0.10"
+
