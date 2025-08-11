@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="1" skipped="0" failures="0" errors="0" time="0.019613" timestamp="2025-08-10T18:43:02-06:00" hostname="aurora">
+<testsuite name="rspec" tests="1" skipped="0" failures="0" errors="0" time="0.031583" timestamp="2025-08-10T19:26:55-06:00" hostname="aurora">
 <properties>
-<property name="seed" value="60401"/>
+<property name="seed" value="47326"/>
 </properties>
-<testcase classname="spec.sanity_spec" name="RSpec setup loads the Rails environment and runs a basic expectation" file="./spec/sanity_spec.rb" time="0.013417"></testcase>
+<testcase classname="spec.sanity_spec" name="RSpec setup loads the Rails environment and runs a basic expectation" file="./spec/sanity_spec.rb" time="0.022356"></testcase>
 </testsuite>

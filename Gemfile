@@ -57,7 +57,7 @@ group :development, :test do
   # Testing
   gem "rspec-rails", "~> 6.1"
   gem "rspec-block_is_expected", "~> 1.0", ">= 1.0.6"
-  gem "kettle-soup-cover", "~> 1.0", ">= 1.0.10"
+  gem "kettle-soup-cover", "~> 1.0", ">= 1.0.10", require: false
 end
 
 group :development do

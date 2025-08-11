@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
+# External gems
+require "kettle-soup-cover"
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 # We provide a preconfigured version compatible with Rails 8
 require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
+
+# Last thing before loading the app-under-test is code coverage.
+require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
 require File.expand_path("../config/environment", __dir__)
 
 # Prevent database truncation if the environment is production
