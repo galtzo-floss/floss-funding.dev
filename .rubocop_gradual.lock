@@ -1,0 +1,17 @@
+{
+  "Rakefile:480582207": [
+    [10, 9, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544]
+  ],
+  "config/environments/production.rb:2945373677": [
+    [38, 55, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`. (https://shopify.github.io/ruby-style-guide/#global-stdout)", 3356722952]
+  ],
+  "lib/tasks/litestream.rake:1706274165": [
+    [3, 21, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544],
+    [24, 3, 30, "Rake/Desc: Describe the task with `desc` method.", 3229873948],
+    [34, 14, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
+    [41, 35, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544],
+    [47, 3, 9, "Rake/Desc: Describe the task with `desc` method.", 646371707],
+    [50, 8, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544],
+    [64, 3, 34, "Rake/Desc: Describe the task with `desc` method.", 3819656448]
+  ]
+}

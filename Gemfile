@@ -55,7 +55,9 @@ group :development, :test do
   gem "standard-rails"
 
   # Testing
+  gem "rspec-rails", "~> 6.1"
   gem "rspec-block_is_expected", "~> 1.0", ">= 1.0.6"
+  gem "kettle-soup-cover", "~> 1.0", ">= 1.0.10"
 end
 
 group :development do
@@ -67,6 +69,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "rspec_junit_formatter", "~> 0.6"
 end
 
 gem "dockerfile-rails", ">= 1.7", group: :development
