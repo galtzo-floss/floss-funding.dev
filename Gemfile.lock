@@ -96,6 +96,7 @@ GEM
     aws-sigv4 (1.12.1)
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.3.0)
+    bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     benchmark (0.4.1)
     betterlint (1.23.0)
@@ -136,6 +137,8 @@ GEM
     dotenv (3.1.8)
     drb (2.2.3)
     ed25519 (1.4.0)
+    enumerate_it (4.1.0)
+      activesupport (>= 6.0.0)
     erb (5.0.2)
     erubi (1.13.1)
     et-orbi (1.3.0)
@@ -146,6 +149,7 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hashie (5.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.2.2)
@@ -219,6 +223,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
+    mutex_m (0.3.0)
     net-imap (0.5.9)
       date
       net-protocol
@@ -246,6 +251,15 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
+    omniauth (2.1.3)
+      hashie (>= 3.4.6)
+      rack (>= 2.2.3)
+      rack-protection
+    omniauth-identity (3.1.4)
+      bcrypt (~> 3.1)
+      mutex_m (~> 0.1)
+      omniauth (>= 1)
+      version_gem (>= 1.1.8, < 3)
     ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.9.0)
@@ -268,6 +282,10 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.2.0)
+    rack-protection (4.1.1)
+      base64 (>= 0.1.0)
+      logger (>= 1.6.0)
+      rack (>= 3.0.0, < 4)
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -486,6 +504,12 @@ GEM
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.7)
+    tailwindcss-rails (2.7.9-aarch64-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.9-arm-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.9-x86_64-linux)
+      railties (>= 7.0.0)
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
     thor (1.4.0)
@@ -530,18 +554,22 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-s3 (~> 1.196)
+  bcrypt (~> 3.1)
   betterlint
   bootsnap
   brakeman
   capybara
   debug
   dockerfile-rails (>= 1.7)
+  enumerate_it (~> 4.1)
   flag_shih_tzu (~> 0.3.23)
   importmap-rails
   jbuilder
   kamal
   kettle-soup-cover (~> 1.0, >= 1.0.10)
   litestream (~> 0.14.0)
+  omniauth (~> 2.1)
+  omniauth-identity (~> 3.0)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)
@@ -558,6 +586,7 @@ DEPENDENCIES
   sqlite3 (>= 2.1)
   standard-rails
   stimulus-rails
+  tailwindcss-rails (~> 2.6)
   thruster
   turbo-rails
   tzinfo-data

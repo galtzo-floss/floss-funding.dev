@@ -1,0 +1,34 @@
+<div class="max-w-4xl mx-auto p-6">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-semibold">Activation Keys</h1>
+    <%= link_to 'New Activation Key', new_activation_key_path, class: 'px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700' %>
+  </div>
+  <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <ul role="list" class="divide-y divide-gray-200">
+      <% @activation_keys.each do |k| %>
+        <li class="px-4 py-4 sm:px-6">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-indigo-600 truncate"><%= k.namespace %>/<%= k.key %></p>
+            <div class="ml-2 flex-shrink-0 flex">
+              <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"><%= k.ecosystem %></p>
+              <% if k.featured? %>
+                <p class="ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Featured</p>
+              <% end %>
+            </div>
+          </div>
+          <div class="mt-2 sm:flex sm:justify-between">
+            <div class="sm:flex">
+              <p class="flex items-center text-sm text-gray-500">
+                <span class="mr-1">Events:</span>
+                <%= k.activation_event_count %>
+              </p>
+            </div>
+            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+              <p>Created <%= time_ago_in_words(k.created_at) %> ago</p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

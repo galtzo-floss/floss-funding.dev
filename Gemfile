@@ -83,3 +83,15 @@ gem "aws-sdk-s3", "~> 1.196", require: false
 gem "flag_shih_tzu", "~> 0.3.23"
 gem "sanitize_email", "~> 2.0", ">= 2.0.10"
 
+
+# Authentication via OmniAuth Identity (email/password only)
+gem "omniauth", "~> 2.1"
+gem "omniauth-identity", "~> 3.0"
+# Password hashing for Identity
+gem "bcrypt", "~> 3.1"
+
+# Enumerations
+gem "enumerate_it", "~> 4.1"
+
+# Tailwind CSS integration
+gem "tailwindcss-rails", "~> 2.6"
