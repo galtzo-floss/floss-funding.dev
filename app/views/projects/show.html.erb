@@ -1,0 +1,16 @@
+<h1>Project: <%= @project.name %></h1>
+
+<% if @activation_keys.any? %>
+  <h2>Activation Keys</h2>
+  <ul>
+    <% @activation_keys.each do |k| %>
+      <li>
+        <%= link_to "#{k.namespace}/#{k.key}", activation_key_path(k) %>
+        <%# Show library for context %>
+        <span>(Library: <%= k.library_name %>)</span>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No activation keys associated with this project yet.</p>
+<% end %>

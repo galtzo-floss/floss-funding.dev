@@ -1,6 +1,9 @@
 <h1>Projects</h1>
 <ul>
   <% @projects.each do |project| %>
-    <li><%= project.name %></li>
+    <li>
+      <%= project.name %>
+      <span>(<%= pluralize(project.activation_keys.size, 'activation key') %>)</span>
+    </li>
   <% end %>
 </ul>

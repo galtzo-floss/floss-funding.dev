@@ -1,6 +1,9 @@
 <h1>Libraries</h1>
 <ul>
   <% @libraries.each do |library| %>
-    <li><%= library.name %></li>
+    <li>
+      <%= library.name %>
+      <span>(<%= pluralize(library.activation_keys.size, 'activation key') %>)</span>
+    </li>
   <% end %>
 </ul>

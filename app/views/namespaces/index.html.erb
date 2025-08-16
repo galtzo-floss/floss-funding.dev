@@ -1,6 +1,9 @@
 <h1>Namespaces</h1>
 <ul>
   <% @namespaces.each do |ns| %>
-    <li><%= ns.name %></li>
+    <li>
+      <%= ns.name %>
+      <span>(<%= pluralize(ns.activation_keys.size, 'activation key') %>)</span>
+    </li>
   <% end %>
 </ul>

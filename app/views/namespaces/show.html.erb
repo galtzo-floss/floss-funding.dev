@@ -1,0 +1,18 @@
+<h1>Namespace: <%= @namespace.name %></h1>
+
+<% if @activation_keys.any? %>
+  <h2>Activation Keys</h2>
+  <ul>
+    <% @activation_keys.each do |k| %>
+      <li>
+        <%= link_to "#{k.namespace}/#{k.key}", activation_key_path(k) %>
+        <span>(Library: <%= k.library_name %>)</span>
+        <% if k.project_name.present? %>
+          <span>- Project: <%= k.project_name %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No activation keys found in this namespace yet.</p>
+<% end %>
