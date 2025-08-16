@@ -13,17 +13,15 @@ export default class extends Controller {
 
     const projectNameInput = this.element.querySelector('input[name="activation_key[project_name]"]')
     const projectUrlInput = this.element.querySelector('input[name="activation_key[project_url]"]')
-    const projectNameLabel = this.element.querySelector('label[for="activation_key_project_name"]')
-    const projectUrlLabel = this.element.querySelector('label[for="activation_key_project_url"]')
+    const projectNameLabel = this.element.querySelector('#label_project_name')
+    const projectUrlLabel = this.element.querySelector('#label_project_url')
 
     if (checkbox.checked) {
-      this.ossFieldsTarget.classList.remove('hidden')
       if (projectNameInput) projectNameInput.setAttribute('required', 'required')
       if (projectUrlInput) projectUrlInput.setAttribute('required', 'required')
       if (projectNameLabel) this.addAsterisk(projectNameLabel)
       if (projectUrlLabel) this.addAsterisk(projectUrlLabel)
     } else {
-      this.ossFieldsTarget.classList.add('hidden')
       if (projectNameInput) projectNameInput.removeAttribute('required')
       if (projectUrlInput) projectUrlInput.removeAttribute('required')
       if (projectNameLabel) this.removeAsterisk(projectNameLabel)

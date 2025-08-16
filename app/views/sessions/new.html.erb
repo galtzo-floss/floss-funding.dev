@@ -5,11 +5,11 @@
     <%= form_with url: session_path, method: :post, class: "mt-8 space-y-6" do |f| %>
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
-          <%= label_tag :email, 'Email', class: 'sr-only' %>
+          <%= label_tag :email, 'Email*', class: 'sr-only' %>
           <%= email_field_tag :email, params[:email], required: true, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-christi focus:border-christi focus:z-10 sm:text-sm', placeholder: 'Email address' %>
         </div>
         <div>
-          <%= label_tag :password, 'Password', class: 'sr-only' %>
+          <%= label_tag :password, 'Password*', class: 'sr-only' %>
           <%= password_field_tag :password, nil, required: true, class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-christi focus:border-christi focus:z-10 sm:text-sm', placeholder: 'Password' %>
         </div>
       </div>
