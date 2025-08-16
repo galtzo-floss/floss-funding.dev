@@ -55,7 +55,6 @@
 # Ruby Version Managers (RVM, rbenv, etc)
 # Ignored because we currently use .tool-versions
 .rvmrc
-.ruby-version
 .ruby-gemset
 
 # Benchmarking
