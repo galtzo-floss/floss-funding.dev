@@ -25,7 +25,7 @@
 
   <body>
     <header class="fixed top-0 inset-x-0 bg-white/90 backdrop-blur shadow z-50">
-      <div class="container mx-auto px-5">
+      <div class="container mx-auto px-5" data-controller="nav-menu">
         <div class="flex items-center justify-between h-20">
           <div class="flex items-center space-x-4">
             <%= link_to root_path, class: 'flex items-center space-x-2 text-van-cleef font-semibold hover:opacity-80' do %>
@@ -33,23 +33,101 @@
               <span>FLOSS Funding</span>
             <% end %>
           </div>
-          <nav class="flex items-center space-x-6 text-sm">
-            <%= link_to 'Home', root_path, class: 'text-van-cleef hover:text-christi' %>
-            <%= link_to 'About', about_path, class: 'text-van-cleef hover:text-christi' %>
-            <%= link_to 'Activation Keys', activation_keys_path, class: 'text-van-cleef hover:text-christi' %>
-            <%= link_to 'Projects', projects_path, class: 'text-van-cleef hover:text-christi' %>
-            <%= link_to 'Libraries', libraries_path, class: 'text-van-cleef hover:text-christi' %>
-            <%= link_to 'Namespaces', namespaces_path, class: 'text-van-cleef hover:text-christi' %>
+          <!-- Desktop navigation -->
+          <nav class="hidden md:flex items-center space-x-6 text-sm">
+            <%= link_to root_path, class: 'text-van-cleef hover:text-christi flex items-center gap-1' do %>
+              <%= lucide_icon 'house', class: 'w-4 h-4' %>
+              <span>Home</span>
+            <% end %>
+            <%= link_to about_path, class: 'text-van-cleef hover:text-christi flex items-center gap-1' do %>
+              <%= lucide_icon 'clipboard-list', class: 'w-4 h-4' %>
+              <span>About</span>
+            <% end %>
+            <%= link_to activation_keys_path, class: 'text-van-cleef hover:text-christi flex items-center gap-1' do %>
+              <%= lucide_icon 'key', class: 'w-4 h-4' %>
+              <span>Activation Keys</span>
+            <% end %>
+            <%= link_to projects_path, class: 'text-van-cleef hover:text-christi flex items-center gap-1' do %>
+              <%= lucide_icon 'drill', class: 'w-4 h-4' %>
+              <span>Projects</span>
+            <% end %>
+            <%= link_to libraries_path, class: 'text-van-cleef hover:text-christi flex items-center gap-1' do %>
+              <%= lucide_icon 'library-big', class: 'w-4 h-4' %>
+              <span>Libraries</span>
+            <% end %>
+            <%= link_to namespaces_path, class: 'text-van-cleef hover:text-christi flex items-center gap-1' do %>
+              <%= lucide_icon 'id-card', class: 'w-4 h-4' %>
+              <span>Namespaces</span>
+            <% end %>
             <%= link_to 'https://github.com/galtzo-floss/floss-funding.dev', class: 'text-van-cleef hover:text-christi flex items-center gap-1', target: '_blank', rel: 'noopener' do %>
               <%= lucide_icon 'github', class: 'w-4 h-4' %>
               <span>GitHub</span>
             <% end %>
             <% if current_account %>
-              <%= link_to 'Log out', session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?' }, class: 'text-tamarillo hover:text-van-cleef' %>
+              <%= link_to session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?' }, class: 'text-tamarillo hover:text-van-cleef flex items-center gap-1' do %>
+                <%= lucide_icon 'log-out', class: 'w-4 h-4' %>
+                <span>Log out</span>
+              <% end %>
             <% else %>
               <%= link_to 'Log in', new_session_path, class: 'text-van-cleef hover:text-christi' %>
             <% end %>
           </nav>
+
+          <!-- Mobile hamburger button -->
+          <button type="button"
+                  class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-van-cleef hover:text-christi hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-christi"
+                  aria-controls="mobile-nav"
+                  aria-expanded="false"
+                  data-action="click->nav-menu#toggle">
+            <span class="sr-only">Open main menu</span>
+            <span data-nav-menu-target="openIcon" class="inline-flex">
+              <%= lucide_icon 'menu', class: 'w-6 h-6' %>
+            </span>
+            <span data-nav-menu-target="closeIcon" class="hidden inline-flex">
+              <%= lucide_icon 'x', class: 'w-6 h-6' %>
+            </span>
+          </button>
+        </div>
+        <!-- Mobile menu panel -->
+        <div id="mobile-nav" class="md:hidden hidden pb-4" data-nav-menu-target="menu">
+          <div class="pt-2 space-y-1 text-sm">
+            <%= link_to root_path, class: 'block px-3 py-2 rounded-md text-van-cleef hover:text-christi hover:bg-gray-50 flex items-center gap-2' do %>
+              <%= lucide_icon 'house', class: 'w-4 h-4' %>
+              <span>Home</span>
+            <% end %>
+            <%= link_to about_path, class: 'block px-3 py-2 rounded-md text-van-cleef hover:text-christi hover:bg-gray-50 flex items-center gap-2' do %>
+              <%= lucide_icon 'clipboard-list', class: 'w-4 h-4' %>
+              <span>About</span>
+            <% end %>
+            <%= link_to activation_keys_path, class: 'block px-3 py-2 rounded-md text-van-cleef hover:text-christi hover:bg-gray-50 flex items-center gap-2' do %>
+              <%= lucide_icon 'key', class: 'w-4 h-4' %>
+              <span>Activation Keys</span>
+            <% end %>
+            <%= link_to projects_path, class: 'block px-3 py-2 rounded-md text-van-cleef hover:text-christi hover:bg-gray-50 flex items-center gap-2' do %>
+              <%= lucide_icon 'drill', class: 'w-4 h-4' %>
+              <span>Projects</span>
+            <% end %>
+            <%= link_to libraries_path, class: 'block px-3 py-2 rounded-md text-van-cleef hover:text-christi hover:bg-gray-50 flex items-center gap-2' do %>
+              <%= lucide_icon 'library-big', class: 'w-4 h-4' %>
+              <span>Libraries</span>
+            <% end %>
+            <%= link_to namespaces_path, class: 'block px-3 py-2 rounded-md text-van-cleef hover:text-christi hover:bg-gray-50 flex items-center gap-2' do %>
+              <%= lucide_icon 'id-card', class: 'w-4 h-4' %>
+              <span>Namespaces</span>
+            <% end %>
+            <%= link_to 'https://github.com/galtzo-floss/floss-funding.dev', class: 'block px-3 py-2 rounded-md text-van-cleef hover:text-christi hover:bg-gray-50 flex items-center gap-2', target: '_blank', rel: 'noopener' do %>
+              <%= lucide_icon 'github', class: 'w-4 h-4' %>
+              <span>GitHub</span>
+            <% end %>
+            <% if current_account %>
+              <%= link_to session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?' }, class: 'block px-3 py-2 rounded-md text-tamarillo hover:text-van-cleef hover:bg-gray-50 flex items-center gap-2' do %>
+                <%= lucide_icon 'log-out', class: 'w-4 h-4' %>
+                <span>Log out</span>
+              <% end %>
+            <% else %>
+              <%= link_to 'Log in', new_session_path, class: 'block px-3 py-2 rounded-md text-van-cleef hover:text-christi hover:bg-gray-50' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </header>
