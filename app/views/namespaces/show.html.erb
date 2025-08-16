@@ -1,18 +1,37 @@
-<h1>Namespace: <%= @namespace.name %></h1>
+<div class="max-w-4xl mx-auto p-6 space-y-6">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <h1 class="text-3xl font-semibold text-van-cleef">
+        <%= @namespace.name %>
+      </h1>
+      <p class="mt-2 text-gray-600">
+        <span class="font-medium"><%= pluralize(@activation_keys.size, 'activation key') %></span>
+        found in this namespace
+      </p>
+    </div>
+  </div>
 
-<% if @activation_keys.any? %>
-  <h2>Activation Keys</h2>
-  <ul>
-    <% @activation_keys.each do |k| %>
-      <li>
-        <%= link_to "#{k.namespace}/#{k.key}", activation_key_path(k) %>
-        <span>(Library: <%= k.library_name %>)</span>
-        <% if k.project_name.present? %>
-          <span>- Project: <%= k.project_name %></span>
+  <% if @activation_keys.any? %>
+    <div class="border-t pt-6">
+      <h2 class="text-xl font-semibold">Activation Keys</h2>
+      <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <% @activation_keys.each do |k| %>
+          <li class="p-4 bg-white rounded shadow-sm border">
+            <div class="flex items-center justify-between">
+              <%= link_to "#{k.namespace}/#{k.key}", activation_key_path(k), class: "text-christi hover:underline" %>
+              <span class="ml-2 inline-block align-middle px-2 py-0.5 rounded-full bg-gray-100 text-gray-800 text-xs"><%= k.ecosystem %></span>
+            </div>
+            <p class="mt-2 text-sm text-gray-600">
+              Library: <span class="font-medium"><%= k.library_name %></span>
+              <% if k.project_name.present? %>
+                <span class="ml-2">• Project: <span class="font-medium"><%= k.project_name %></span></span>
+              <% end %>
+            </p>
+          </li>
         <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No activation keys found in this namespace yet.</p>
-<% end %>
+      </ul>
+    </div>
+  <% else %>
+    <p class="text-gray-600">No activation keys found in this namespace yet.</p>
+  <% end %>
+</div>

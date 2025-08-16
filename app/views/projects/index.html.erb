@@ -1,9 +1,18 @@
 <h1>Projects</h1>
-<ul>
-  <% @projects.each do |project| %>
-    <li>
-      <%= project.name %>
-      <span>(<%= pluralize(project.activation_keys.size, 'activation key') %>)</span>
-    </li>
-  <% end %>
-</ul>
+
+<table class="min-w-full divide-y divide-gray-200 mt-4">
+  <thead class="bg-gray-50">
+    <tr>
+      <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+      <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Activation Keys</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white divide-y divide-gray-200">
+    <% @projects.each do |project| %>
+      <tr>
+        <td class="px-4 py-2 whitespace-nowrap"><%= link_to project.name, project_path(project), class: 'text-christi hover:underline' %></td>
+        <td class="px-4 py-2 whitespace-nowrap"><%= project.activation_keys.size %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,9 +1,18 @@
 <h1>Libraries</h1>
-<ul>
-  <% @libraries.each do |library| %>
-    <li>
-      <%= library.name %>
-      <span>(<%= pluralize(library.activation_keys.size, 'activation key') %>)</span>
-    </li>
-  <% end %>
-</ul>
+
+<table class="min-w-full divide-y divide-gray-200 mt-4">
+  <thead class="bg-gray-50">
+    <tr>
+      <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+      <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Activation Keys</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white divide-y divide-gray-200">
+    <% @libraries.each do |library| %>
+      <tr>
+        <td class="px-4 py-2 whitespace-nowrap"><%= link_to library.name, library_path(library), class: 'text-christi hover:underline' %></td>
+        <td class="px-4 py-2 whitespace-nowrap"><%= library.activation_keys.size %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
