@@ -13,7 +13,7 @@ RSpec.describe 'ActivationKeys', type: :request do
     get activation_keys_path
     expect(response).to have_http_status(:ok)
 
-    post activation_keys_path, params: { activation_key: { namespace: 'org', key: 'lib', ecosystem: 'ruby', featured: '1' } }
+    post activation_keys_path, params: { activation_key: { namespace: 'org', key: 'lib', ecosystem: 'ruby', project_name: 'Proj', featured: '1' } }
     expect(response).to redirect_to(activation_keys_path)
 
     follow_redirect!

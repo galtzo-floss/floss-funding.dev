@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ActivationEvent, type: :model do
-  let(:key) { ActivationKey.create!(namespace: 'org', key: 'lib', ecosystem: 'ruby') }
+  let(:key) { ActivationKey.create!(namespace: 'org', key: 'lib', ecosystem: 'ruby', project_name: 'Proj') }
 
   it 'validates presence of activation_key and has USD as default currency' do
     event = described_class.new
