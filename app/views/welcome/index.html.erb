@@ -30,5 +30,7 @@
         <li>Feature your projects to be highlighted on the homepage for logged-in users.</li>
       </ul>
     </div>
+
+    <%= render partial: 'featured_carousel', locals: { featured_activation_keys: @featured_activation_keys } %>
   </div>
 </div>

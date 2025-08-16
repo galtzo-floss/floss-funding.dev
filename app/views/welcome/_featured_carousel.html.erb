@@ -1,0 +1,38 @@
+<%# Featured Activation Keys Carousel - Slot Machine Style %>
+<% if featured_activation_keys.present? %>
+  <div class="mt-8">
+    <h3 class="text-xl font-semibold text-van-cleef mb-3">Featured Activation Keys</h3>
+    <div
+      data-controller="slot-carousel"
+      data-slot-carousel-interval-value="10000"
+      class="relative w-full max-w-xl h-40 sm:h-44 md:h-48 overflow-hidden border rounded-lg bg-white shadow">
+      <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/50 via-transparent to-white/50"></div>
+      <div class="absolute inset-0" data-slot-carousel-target="track">
+        <% featured_activation_keys.each_with_index do |k, idx| %>
+          <%= link_to(
+                activation_key_path(k),
+                class: [
+                  'slot-card absolute inset-x-4 sm:inset-x-6 top-1/2 -translate-y-1/2 will-change-transform will-change-contents',
+                  'bg-gray-50 border rounded-lg shadow-sm px-4 py-3 sm:px-5 sm:py-4',
+                  'transition-opacity duration-300 ease-out',
+                  (idx.zero? ? 'opacity-100' : 'opacity-0 pointer-events-none')
+                ].join(' '),
+                data: { index: idx }
+              ) do %>
+            <div class="flex items-center justify-between">
+              <p class="text-base sm:text-lg font-semibold text-christi truncate"><%= k.namespace %>/<%= k.key %></p>
+              <span class="ml-3 inline-flex items-center px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-800 text-xs font-medium">Featured</span>
+            </div>
+            <div class="mt-2 flex items-center justify-between">
+              <div class="flex items-center space-x-2 text-sm text-gray-600">
+                <span class="inline-flex px-2 py-0.5 rounded bg-gray-200 text-gray-800"><%= k.ecosystem %></span>
+                <span class="hidden sm:inline">Events: <%= k.activation_event_count %></span>
+              </div>
+              <div class="text-xs text-gray-500">Added <%= time_ago_in_words(k.created_at) %> ago</div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
