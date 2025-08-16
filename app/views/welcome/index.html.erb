@@ -1,7 +1,7 @@
 <% content_for :main_class do %>min-h-screen<% end %>
 <div class="min-h-screen md:grid md:grid-cols-2">
   <!-- Left static panel on desktop -->
-  <div class="md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 py-10 bg-gray-50 border-b md:border-b-0 md:border-r">
+  <div class="md:sticky md:top-0 md:h-screen flex flex-col justify-start px-6 py-6 bg-gray-50 border-b md:border-b-0 md:border-r">
     <div class="max-w-md mx-auto w-full">
       <div class="flex flex-col items-start">
         <%= image_tag 'https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px-blank.svg', alt: 'Galtzo FLOSS Logo - no words by Aboling0, CC BY-SA 4.0', class: 'h-16 w-16 mb-6' %>
@@ -31,6 +31,6 @@
       </ul>
     </div>
 
-    <%= render partial: 'featured_carousel', locals: { featured_activation_keys: @featured_activation_keys } %>
+    <%= render partial: 'featured_carousel', locals: { featured_libraries: @featured_libraries } %>
   </div>
 </div>

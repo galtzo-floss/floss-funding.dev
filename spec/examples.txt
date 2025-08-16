@@ -11,7 +11,7 @@ example_id                                                  | status | run_time 
 ./spec/models/library_spec.rb[1:1]                          | passed | 0.0553 seconds  |
 ./spec/models/namespace_spec.rb[1:1]                        | passed | 0.01048 seconds |
 ./spec/models/project_spec.rb[1:1]                          | passed | 0.01101 seconds |
-./spec/requests/activation_keys_retired_spec.rb[1:1]        | passed | 0.09666 seconds |
+./spec/requests/activation_keys_retired_spec.rb[1:1]        | passed | 0.25555 seconds |
 ./spec/requests/activation_keys_show_namespace_spec.rb[1:1] | passed | 0.03986 seconds |
 ./spec/requests/activation_keys_spec.rb[1:1]                | passed | 0.03129 seconds |
 ./spec/requests/activation_keys_update_spec.rb[1:1]         | passed | 0.09391 seconds |
