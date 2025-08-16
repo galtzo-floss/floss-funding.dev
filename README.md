@@ -1,24 +1,77 @@
-# README
+# floss-funding.dev
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository is a Rails 8 application. Below are instructions for local development, including how TailwindCSS is rebuilt automatically as you work.
 
-Things you may want to cover:
+## Requirements
+- Ruby (see `.ruby-version` if present or use the version from Gemfile)
+- Bundler
+- SQLite3 (for development/test)
 
-* Ruby version
+## Setup
+```
+bundle install
+bin/rails db:setup
+```
 
-* System dependencies
+## Running the app
+Start the Rails server:
+```
+bin/rails server
+```
 
-* Configuration
+## Auto-building TailwindCSS during development
+We provide two ways to keep your Tailwind styles up-to-date while you edit files.
 
-* Database creation
+### Option A: Procfile.dev (Tailwind watcher)
+A Procfile is included with a Tailwind watcher process.
 
-* Database initialization
+- Install a Procfile runner (choose one):
+  - foreman: `gem install foreman`
+  - or overmind: https://github.com/DarthSim/overmind
+- Start the dev processes (web + Tailwind watcher):
+```
+foreman start -f Procfile.dev
+# or with Overmind
+overmind start -f Procfile.dev
+```
+This runs `bin/rails tailwindcss:watch`, which continuously rebuilds CSS.
 
-* How to run the test suite
+### Option B: Guard (runs bin/rake tailwindcss:build on changes)
+If you prefer to trigger a one-off Tailwind build automatically whenever files change, use Guard:
 
-* Services (job queues, cache servers, search engines, etc.)
+1) Ensure development dependencies are installed:
+```
+bundle install
+```
+2) Start Guard:
+```
+bundle exec guard
+```
+Guard will watch:
+- app/assets/stylesheets/**/*
+- app/javascript/**/*
+- app/views/**/*
+- app/helpers/**/*
+- app/components/**/*
+- config/**/*
+- tailwind.config.* (if present)
 
-* Deployment instructions
+When any of these files change, Guard runs:
+```
+bin/rake tailwindcss:build
+```
+This will regenerate CSS into the propshaft builds directory.
 
-* ...
+Tip: On a brand new clone, you can prime the build once with:
+```
+bin/rake tailwindcss:build
+```
+
+## Running tests
+```
+bundle exec rspec
+```
+
+## Notes
+- Tailwind is integrated via the `tailwindcss-rails` gem.
+- You can use either Option A (continuous watcher) or Option B (Guard-triggered builds). Use the one that best fits your workflow.
