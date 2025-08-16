@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   # Activation keys
   resources :activation_keys, only: [:index, :new, :create, :show, :edit, :update]
 
+  # Index lists
+  resources :projects, only: [:index]
+  resources :libraries, only: [:index]
+  resources :namespaces, only: [:index]
+
   # Static pages
   get "about" => "welcome#about", as: :about
 

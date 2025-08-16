@@ -31,4 +31,13 @@ RSpec.describe ActivationKey, type: :model do
     key = described_class.create!(library_name: 'Lib', namespace: 'o', key: 'l', ecosystem: 'ruby', project_name: 'Proj')
     expect { ActivationEvent.create!(activation_key: key, donation_currency: 'USD') }.to change { key.reload.activation_event_count }.from(0).to(1)
   end
+  it 'auto-creates and links namespace, library, and project on create' do
+    key = described_class.create!(library_name: 'LibAA', namespace: 'org.aa', key: 'libaa', ecosystem: 'ruby', project_name: 'ProjAA')
+    expect(key.library).to be_present
+    expect(key.namespace_record).to be_present
+    expect(key.project).to be_present
+    expect(key.library.name).to eq('LibAA')
+    expect(key.namespace_record.name).to eq('org.aa')
+    expect(key.project.name).to eq('ProjAA')
+  end
 end

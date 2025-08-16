@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_15_205600) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_16_223500) do
   create_table "accounts", force: :cascade do |t|
     t.string "email", null: false
     t.datetime "created_at", null: false
@@ -43,7 +43,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_15_205600) do
     t.string "project_name"
     t.string "project_url"
     t.string "library_name"
+    t.integer "project_id"
+    t.integer "library_id", null: false
+    t.integer "namespace_id", null: false
+    t.index ["library_id"], name: "index_activation_keys_on_library_id"
     t.index ["namespace", "key"], name: "index_activation_keys_on_namespace_and_key", unique: true
+    t.index ["namespace_id"], name: "index_activation_keys_on_namespace_id"
+    t.index ["project_id"], name: "index_activation_keys_on_project_id"
   end
 
   create_table "identities", force: :cascade do |t|
@@ -56,7 +62,31 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_15_205600) do
     t.index ["email"], name: "index_identities_on_email", unique: true
   end
 
+  create_table "libraries", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_libraries_on_name", unique: true
+  end
+
+  create_table "namespaces", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_namespaces_on_name", unique: true
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_projects_on_name", unique: true
+  end
+
   add_foreign_key "activation_events", "accounts"
   add_foreign_key "activation_events", "activation_keys"
+  add_foreign_key "activation_keys", "libraries"
+  add_foreign_key "activation_keys", "namespaces"
+  add_foreign_key "activation_keys", "projects"
   add_foreign_key "identities", "accounts"
 end

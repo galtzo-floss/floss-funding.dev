@@ -1,6 +1,10 @@
 class ActivationKey < ApplicationRecord
   has_many :activation_events, dependent: :restrict_with_error
 
+  belongs_to :project, optional: true
+  belongs_to :library, optional: false
+  belongs_to :namespace_record, class_name: 'Namespace', foreign_key: 'namespace_id', optional: false
+
   include FlagShihTzu
   has_flags 1 => :featured,
             2 => :free_for_open_source
@@ -16,6 +20,7 @@ class ActivationKey < ApplicationRecord
 
   has_enumeration_for :ecosystem, with: Ecosystem, create_helpers: true, required: true
 
+  before_validation :ensure_associations_from_names
   before_destroy :prevent_destroy
 
   def badge_markdown
@@ -34,6 +39,28 @@ class ActivationKey < ApplicationRecord
   end
 
   private
+
+  def ensure_associations_from_names
+    # Namespace
+    if namespace.present?
+      ns = Namespace.where('LOWER(name) = ?', namespace.to_s.downcase).first || Namespace.create!(name: namespace)
+      self.namespace_id = ns.id
+    end
+
+    # Library
+    if library_name.present?
+      lib = Library.where('LOWER(name) = ?', library_name.to_s.downcase).first || Library.create!(name: library_name)
+      self.library_id = lib.id
+    end
+
+    # Project (nullable)
+    if project_name.present?
+      proj = Project.where('LOWER(name) = ?', project_name.to_s.downcase).first || Project.create!(name: project_name)
+      self.project_id = proj.id
+    else
+      self.project_id = nil if will_save_change_to_project_name?
+    end
+  end
 
   def badge_logo_for(ecosystem)
     case ecosystem.to_s
