@@ -3,22 +3,22 @@ class ActivationKey < ApplicationRecord
 
   belongs_to :project, optional: true
   belongs_to :library, optional: false
-  belongs_to :namespace_record, class_name: 'Namespace', foreign_key: 'namespace_id', optional: false
+  belongs_to :namespace_record, class_name: "Namespace", foreign_key: "namespace_id", optional: false
 
   include FlagShihTzu
   has_flags 1 => :featured,
-            2 => :free_for_open_source
+    2 => :free_for_open_source
 
   # Named scope for non-retired records (do not use default scopes)
   scope :active, -> { where(retired: false) }
 
   validates :namespace, presence: true
-  validates :key, presence: true, uniqueness: { scope: :namespace, case_sensitive: false }
+  validates :key, presence: true, uniqueness: {scope: :namespace, case_sensitive: false}
   validates :ecosystem, presence: true
   validates :library_name, presence: true
 
   validates :project_name, presence: true, if: :free_for_open_source?
-  validates :project_name, length: { minimum: 2, maximum: 100 }, format: { with: /\A[[:alnum:]][[:alnum:] ._\-+\/]{1,99}\z/, message: 'must be 2-100 characters with letters, numbers, spaces, and ._-+/' }, allow_blank: true
+  validates :project_name, length: {minimum: 2, maximum: 100}, format: {with: /\A[[:alnum:]][[:alnum:] ._\-+\/]{1,99}\z/, message: "must be 2-100 characters with letters, numbers, spaces, and ._-+/"}, allow_blank: true
   validates :project_url, presence: true, if: :free_for_open_source?
 
   has_enumeration_for :ecosystem, with: Ecosystem, create_helpers: true, required: true
@@ -28,14 +28,14 @@ class ActivationKey < ApplicationRecord
 
   def badge_markdown
     # Show badge only when both fields are present and OSS is enabled
-    return nil unless free_for_open_source? && project_name.present? && project_url.present?
+    return unless free_for_open_source? && project_name.present? && project_url.present?
 
     label = "#{project_name} ❤️ #{library_name}"
     encoded_label = ERB::Util.url_encode(label)
 
     logo = badge_logo_for(ecosystem)
     # Build shields URL with logo when available
-    image_url = "https://img.shields.io/badge/#{encoded_label}-brightgreen" + (logo ? "?logo=#{ERB::Util.url_encode(logo)}&logoColor=white" : '')
+    image_url = "https://img.shields.io/badge/#{encoded_label}-brightgreen" + (logo ? "?logo=#{ERB::Util.url_encode(logo)}&logoColor=white" : "")
     alt_text = label
 
     "[![#{alt_text}](#{image_url})](#{project_url})"
@@ -46,42 +46,41 @@ class ActivationKey < ApplicationRecord
   def ensure_associations_from_names
     # Namespace
     if namespace.present?
-      ns = Namespace.where('LOWER(name) = ?', namespace.to_s.downcase).first || Namespace.create!(name: namespace)
+      ns = Namespace.where("LOWER(name) = ? AND ecosystem = ?", namespace.to_s.downcase, ecosystem).first || Namespace.create!(name: namespace, ecosystem: ecosystem)
       self.namespace_id = ns.id
     end
 
     # Library
     if library_name.present?
-      lib = Library.where('LOWER(name) = ?', library_name.to_s.downcase).first || Library.create!(name: library_name)
+      lib = Library.where("LOWER(name) = ? AND ecosystem = ?", library_name.to_s.downcase, ecosystem).first || Library.create!(name: library_name, ecosystem: ecosystem)
       self.library_id = lib.id
     end
 
     # Project (nullable)
     if project_name.present?
-      proj = Project.where('LOWER(name) = ?', project_name.to_s.downcase).first || Project.create!(name: project_name)
+      proj = Project.where("LOWER(name) = ? AND ecosystem = ?", project_name.to_s.downcase, ecosystem).first || Project.create!(name: project_name, ecosystem: ecosystem)
       self.project_id = proj.id
-    else
-      self.project_id = nil if will_save_change_to_project_name?
+    elsif will_save_change_to_project_name?
+      self.project_id = nil
     end
   end
 
   def badge_logo_for(ecosystem)
     case ecosystem.to_s
-    when 'ruby' then 'rubygems'
-    when 'python' then 'pypi'
-    when 'javascript' then 'npm'
-    when 'php' then 'packagist'
-    when 'perl' then 'cpan'
-    when 'bash' then 'gnubash'
-    when 'go' then 'go'
-    when 'java' then 'java'
-    when 'lua' then 'lua'
-    else nil
+    when "ruby" then "rubygems"
+    when "python" then "pypi"
+    when "javascript" then "npm"
+    when "php" then "packagist"
+    when "perl" then "cpan"
+    when "bash" then "gnubash"
+    when "go" then "go"
+    when "java" then "java"
+    when "lua" then "lua"
     end
   end
 
   def prevent_destroy
-    errors.add(:base, 'Activation keys cannot be deleted')
+    errors.add(:base, "Activation keys cannot be deleted")
     throw(:abort)
   end
 end

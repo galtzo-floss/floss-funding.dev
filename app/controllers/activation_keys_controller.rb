@@ -17,9 +17,9 @@ class ActivationKeysController < ApplicationController
   def create
     @activation_key = ActivationKey.new(activation_key_params)
     if @activation_key.save
-      redirect_to activation_keys_path, notice: 'Activation key created'
+      redirect_to(activation_keys_path, notice: "Activation key created")
     else
-      render :new, status: :unprocessable_entity
+      render(:new, status: :unprocessable_entity)
     end
   end
 
@@ -28,9 +28,9 @@ class ActivationKeysController < ApplicationController
 
   def update
     if @activation_key.update(activation_key_update_params)
-      redirect_to activation_key_path(@activation_key), notice: 'Activation key updated'
+      redirect_to(activation_key_path(@activation_key), notice: "Activation key updated")
     else
-      render :edit, status: :unprocessable_entity
+      render(:edit, status: :unprocessable_entity)
     end
   end
 

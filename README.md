@@ -45,7 +45,7 @@ bundle install
 ```
 2) Start Guard:
 ```
-bundle exec guard
+bundle exec(guard)
 ```
 Guard will watch:
 - app/assets/stylesheets/**/*
@@ -69,7 +69,7 @@ bin/rake tailwindcss:build
 
 ## Running tests
 ```
-bundle exec rspec
+bundle exec(rspec)
 ```
 
 ## Notes

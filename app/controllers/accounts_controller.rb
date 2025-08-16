@@ -11,9 +11,9 @@ class AccountsController < ApplicationController
         Identity.create!(account: @account, email: @account.email, password: params[:account][:password], password_confirmation: params[:account][:password_confirmation])
       end
       session[:account_id] = @account.id
-      redirect_to activation_keys_path, notice: 'Account created successfully'
+      redirect_to(activation_keys_path, notice: "Account created successfully")
     else
-      render :new, status: :unprocessable_entity
+      render(:new, status: :unprocessable_entity)
     end
   end
 

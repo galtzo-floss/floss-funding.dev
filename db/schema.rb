@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_16_223500) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_16_230000) do
   create_table "accounts", force: :cascade do |t|
     t.string "email", null: false
     t.datetime "created_at", null: false
@@ -68,21 +68,24 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_16_223500) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_libraries_on_name", unique: true
+    t.string "ecosystem", null: false
+    t.index ["ecosystem", "name"], name: "index_libraries_on_ecosystem_and_name", unique: true
   end
 
   create_table "namespaces", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_namespaces_on_name", unique: true
+    t.string "ecosystem", null: false
+    t.index ["ecosystem", "name"], name: "index_namespaces_on_ecosystem_and_name", unique: true
   end
 
   create_table "projects", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_projects_on_name", unique: true
+    t.string "ecosystem", null: false
+    t.index ["ecosystem", "name"], name: "index_projects_on_ecosystem_and_name", unique: true
   end
 
   add_foreign_key "activation_events", "accounts"

@@ -13,7 +13,7 @@ class ActivationEvent < ApplicationRecord
   private
 
   def prevent_destroy
-    errors.add(:base, 'Activation events cannot be deleted')
+    errors.add(:base, "Activation events cannot be deleted")
     throw(:abort)
   end
 end

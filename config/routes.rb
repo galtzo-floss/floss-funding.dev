@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :namespaces, only: [:index, :show]
 
   # Static pages
-  get "about" => "welcome#about", as: :about
+  get "about" => "welcome#about", :as => :about
 
   # Defines the root path route ("/")
   root "welcome#index"

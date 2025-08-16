@@ -2,7 +2,7 @@
 # Runs `rake tailwindcss:build` whenever relevant files change.
 # Requires gems: guard, guard-rake (added in Gemfile under development group).
 
-guard :rake, task: 'tailwindcss:build' do
+guard :rake, task: "tailwindcss:build" do
   # Stylesheets (including tailwind entry file)
   watch(%r{^app/assets/stylesheets/.+\.(css|scss|sass)$})
 
@@ -20,7 +20,7 @@ guard :rake, task: 'tailwindcss:build' do
   watch(%r{^config/.+\.(rb|yml)$})
 
   # Tailwind config (if present in project)
-  watch('tailwind.config.js')
-  watch('tailwind.config.cjs')
-  watch('tailwind.config.ts')
+  watch("tailwind.config.js")
+  watch("tailwind.config.cjs")
+  watch("tailwind.config.ts")
 end
