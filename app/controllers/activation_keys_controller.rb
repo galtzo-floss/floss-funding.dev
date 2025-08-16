@@ -26,6 +26,6 @@ class ActivationKeysController < ApplicationController
   private
 
   def activation_key_params
-    params.require(:activation_key).permit(:namespace, :key, :ecosystem, :featured, :free_for_open_source, :project_name, :project_url)
+    params.require(:activation_key).permit(:library_name, :namespace, :key, :ecosystem, :featured, :free_for_open_source, :project_name, :project_url)
   end
 end
