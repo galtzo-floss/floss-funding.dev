@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :accounts, only: [:new, :create]
 
   # Activation keys
-  resources :activation_keys, only: [:index, :new, :create]
+  resources :activation_keys, only: [:index, :new, :create, :show]
 
   # Defines the root path route ("/")
   root "welcome#index"

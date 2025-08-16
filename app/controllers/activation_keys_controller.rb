@@ -5,6 +5,10 @@ class ActivationKeysController < ApplicationController
     @activation_keys = ActivationKey.order(created_at: :desc)
   end
 
+  def show
+    @activation_key = ActivationKey.find(params[:id])
+  end
+
   def new
     @activation_key = ActivationKey.new
   end
@@ -21,6 +25,6 @@ class ActivationKeysController < ApplicationController
   private
 
   def activation_key_params
-    params.require(:activation_key).permit(:namespace, :key, :ecosystem, :featured)
+    params.require(:activation_key).permit(:namespace, :key, :ecosystem, :featured, :free_for_open_source, :project_name, :project_url)
   end
 end

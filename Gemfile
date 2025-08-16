@@ -52,6 +52,7 @@ group :development, :test do
   #gem "rubocop-rails-omakase", require: false
   gem "betterlint"
   gem "rubocop-lts", "~> 24.0", ">= 24.0.2"
+  gem "standard", ">= 1.42"
   gem "standard-rails"
 
   # Testing

@@ -1,0 +1,41 @@
+<div class="max-w-3xl mx-auto p-6 space-y-6">
+  <div>
+    <h1 class="text-3xl font-semibold text-van-cleef">
+      <%= @activation_key.namespace %>/<%= @activation_key.key %>
+    </h1>
+    <p class="mt-2 text-gray-600">Ecosystem: <span class="font-medium"><%= @activation_key.ecosystem %></span></p>
+    <% if @activation_key.featured? %>
+      <p class="mt-1 inline-block px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-800 text-xs">Featured</p>
+    <% end %>
+  </div>
+
+  <% if @activation_key.free_for_open_source? %>
+    <div class="border-t pt-6">
+      <h2 class="text-xl font-semibold">Open Source Badge</h2>
+      <% if @activation_key.badge_markdown.present? %>
+        <div class="mt-4">
+          <p class="text-sm text-gray-600 mb-2">Rendered badge:</p>
+          <div class="p-4 bg-white rounded border inline-block">
+            <%# Render the markdown image by extracting the image URL from badge_markdown %>
+            <% md = @activation_key.badge_markdown %>
+            <% img_url = md[/\((https:\/\/img\.shields\.io[^)]+)\)/, 1] %>
+            <% link_url = md[/\)\]\(([^)]+)\)/, 1] %>
+            <% if link_url.present? %>
+              <a href="<%= link_url %>" target="_blank" rel="noopener">
+                <img src="<%= img_url %>" alt="badge" />
+              </a>
+            <% else %>
+              <img src="<%= img_url %>" alt="badge" />
+            <% end %>
+          </div>
+        </div>
+        <div class="mt-4">
+          <p class="text-sm text-gray-600 mb-2">Markdown:</p>
+          <pre class="p-4 bg-gray-100 rounded overflow-x-auto text-sm"><code><%= @activation_key.badge_markdown %></code></pre>
+        </div>
+      <% else %>
+        <p class="mt-2 text-gray-600">Provide project name and URL to generate your badge.</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

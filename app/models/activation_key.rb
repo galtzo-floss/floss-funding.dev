@@ -2,15 +2,33 @@ class ActivationKey < ApplicationRecord
   has_many :activation_events, dependent: :restrict_with_error
 
   include FlagShihTzu
-  has_flags 1 => :featured
+  has_flags 1 => :featured,
+            2 => :free_for_open_source
 
   validates :namespace, presence: true
   validates :key, presence: true, uniqueness: { scope: :namespace, case_sensitive: false }
   validates :ecosystem, presence: true
 
+  validates :project_name, presence: true, if: :free_for_open_source?
+  validates :project_url, presence: true, if: :free_for_open_source?
+
   has_enumeration_for :ecosystem, with: Ecosystem, create_helpers: true, required: true
 
   before_destroy :prevent_destroy
+
+  def badge_markdown
+    return nil unless free_for_open_source? && project_name.present?
+
+    label = "#{project_name} ❤️ floss-funding"
+    encoded_label = ERB::Util.url_encode(label)
+    image_url = "https://img.shields.io/badge/#{encoded_label}-brightgreen"
+    alt_text = label
+    if project_url.present?
+      "[![#{alt_text}](#{image_url})](#{project_url})"
+    else
+      "![#{alt_text}](#{image_url})"
+    end
+  end
 
   private
 

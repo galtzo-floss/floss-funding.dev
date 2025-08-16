@@ -1,24 +1,43 @@
-<div class="max-w-xl mx-auto p-6">
-  <h1 class="text-2xl font-semibold mb-6">New Activation Key</h1>
-  <%= form_with model: @activation_key, url: activation_keys_path, class: 'space-y-4' do |f| %>
+<% content_for :main_class do %>min-h-screen bg-gray-50<% end %>
+<div class="max-w-2xl mx-auto p-6">
+  <h1 class="text-3xl font-semibold mb-8">New Activation Key</h1>
+  <%= form_with model: @activation_key, url: activation_keys_path, class: 'space-y-6', data: { controller: 'activation-key-form' } do |f| %>
     <div>
-      <%= f.label :namespace, class: 'block text-sm font-medium text-gray-700' %>
-      <%= f.text_field :namespace, required: true, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi sm:text-sm' %>
+      <%= f.label :namespace, class: 'block text-base font-medium text-gray-700' %>
+      <%= f.text_field :namespace, required: true, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi text-base py-3' %>
     </div>
     <div>
-      <%= f.label :key, class: 'block text-sm font-medium text-gray-700' %>
-      <%= f.text_field :key, required: true, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi sm:text-sm' %>
+      <%= f.label :key, class: 'block text-base font-medium text-gray-700' %>
+      <%= f.text_field :key, required: true, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi text-base py-3' %>
     </div>
     <div>
-      <%= f.label :ecosystem, class: 'block text-sm font-medium text-gray-700' %>
-      <%= f.select :ecosystem, Ecosystem.to_a, {}, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi sm:text-sm' %>
+      <%= f.label :ecosystem, class: 'block text-base font-medium text-gray-700' %>
+      <%= f.select :ecosystem, Ecosystem.to_a, {}, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi text-base py-3' %>
     </div>
     <div class="flex items-center">
       <%= f.check_box :featured, class: 'h-4 w-4 text-christi border-gray-300 rounded' %>
       <%= f.label :featured, class: 'ml-2 block text-sm text-van-cleef' %>
+      <span class="ml-2 text-gray-500" title="Allows your projects to be featured on the logged in homepage for using other projects, or being used by other projects.">ℹ️</span>
     </div>
+
+    <div class="flex items-center">
+      <%= f.check_box :free_for_open_source, class: 'h-4 w-4 text-christi border-gray-300 rounded', data: { action: 'activation-key-form#toggleOss' } %>
+      <%= f.label :free_for_open_source, 'Free for open source', class: 'ml-2 block text-sm text-van-cleef' %>
+    </div>
+
+    <div data-activation-key-form-target="ossFields" class="hidden space-y-6">
+      <div>
+        <%= f.label :project_name, 'Project name', class: 'block text-base font-medium text-gray-700' %>
+        <%= f.text_field :project_name, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi text-base py-3' %>
+      </div>
+      <div>
+        <%= f.label :project_url, 'Project URL', class: 'block text-base font-medium text-gray-700' %>
+        <%= f.url_field :project_url, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi text-base py-3' %>
+      </div>
+    </div>
+
     <div>
-      <%= f.submit 'Create Activation Key', class: 'px-4 py-2 bg-christi text-white rounded hover:bg-bright-green' %>
+      <%= f.submit 'Create Activation Key', class: 'px-6 py-3 text-base bg-christi text-white rounded hover:bg-bright-green' %>
     </div>
   <% end %>
 </div>
