@@ -39,3 +39,36 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Specs
+.rspec_status
+/coverage/
+/spec/reports/
+/results/
+
+# Documentation
+/.yardoc/
+/_yardoc/
+/rdoc/
+/doc/
+
+# Ruby Version Managers (RVM, rbenv, etc)
+# Ignored because we currently use .tool-versions
+.rvmrc
+.ruby-version
+.ruby-gemset
+
+# Benchmarking
+/measurement/
+
+# Debugger detritus
+.byebug_history
+
+# direnv - brew install direnv
+.env.local
+
+# OS Detritus
+.DS_Store
+
+# Editors
+*~

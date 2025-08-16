@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="11" skipped="0" failures="0" errors="0" time="0.290901" timestamp="2025-08-10T21:56:10-06:00" hostname="aurora">
+<testsuite name="rspec" tests="11" skipped="0" failures="0" errors="0" time="0.292108" timestamp="2025-08-15T19:30:19-06:00" hostname="aurora">
 <properties>
-<property name="seed" value="15027"/>
+<property name="seed" value="5397"/>
 </properties>
-<testcase classname="spec.models.activation_key_spec" name="ActivationKey validates required fields and enum" file="./spec/models/activation_key_spec.rb" time="0.030465"></testcase>
-<testcase classname="spec.models.activation_key_spec" name="ActivationKey prevents destroy" file="./spec/models/activation_key_spec.rb" time="0.018127"></testcase>
-<testcase classname="spec.models.activation_key_spec" name="ActivationKey counter caches activation events" file="./spec/models/activation_key_spec.rb" time="0.018909"></testcase>
-<testcase classname="spec.models.activation_key_spec" name="ActivationKey uses flag_shih_tzu for featured" file="./spec/models/activation_key_spec.rb" time="0.008038"></testcase>
-<testcase classname="spec.requests.welcome_spec" name="Welcome page renders the welcome page" file="./spec/requests/welcome_spec.rb" time="0.068730"></testcase>
-<testcase classname="spec.requests.authentication_spec" name="Authentication allows creating an account and logging in" file="./spec/requests/authentication_spec.rb" time="0.069642"></testcase>
-<testcase classname="spec.models.activation_event_spec" name="ActivationEvent validates presence of activation_key and has USD as default currency" file="./spec/models/activation_event_spec.rb" time="0.006710"></testcase>
-<testcase classname="spec.models.activation_event_spec" name="ActivationEvent prevents destroy" file="./spec/models/activation_event_spec.rb" time="0.008714"></testcase>
-<testcase classname="spec.models.activation_event_spec" name="ActivationEvent supports donation_affirmed flag" file="./spec/models/activation_event_spec.rb" time="0.010458"></testcase>
-<testcase classname="spec.requests.activation_keys_spec" name="ActivationKeys lists activation keys and allows creating new key" file="./spec/requests/activation_keys_spec.rb" time="0.041536"></testcase>
-<testcase classname="spec.sanity_spec" name="RSpec setup loads the Rails environment and runs a basic expectation" file="./spec/sanity_spec.rb" time="0.001023"></testcase>
+<testcase classname="spec.models.activation_event_spec" name="ActivationEvent validates presence of activation_key and has USD as default currency" file="./spec/models/activation_event_spec.rb" time="0.042454"></testcase>
+<testcase classname="spec.models.activation_event_spec" name="ActivationEvent prevents destroy" file="./spec/models/activation_event_spec.rb" time="0.011692"></testcase>
+<testcase classname="spec.models.activation_event_spec" name="ActivationEvent supports donation_affirmed flag" file="./spec/models/activation_event_spec.rb" time="0.011383"></testcase>
+<testcase classname="spec.requests.authentication_spec" name="Authentication allows creating an account and logging in" file="./spec/requests/authentication_spec.rb" time="0.130524"></testcase>
+<testcase classname="spec.requests.activation_keys_spec" name="ActivationKeys lists activation keys and allows creating new key" file="./spec/requests/activation_keys_spec.rb" time="0.040820"></testcase>
+<testcase classname="spec.sanity_spec" name="RSpec setup loads the Rails environment and runs a basic expectation" file="./spec/sanity_spec.rb" time="0.001054"></testcase>
+<testcase classname="spec.requests.welcome_spec" name="Welcome page renders the welcome page" file="./spec/requests/welcome_spec.rb" time="0.009833"></testcase>
+<testcase classname="spec.models.activation_key_spec" name="ActivationKey counter caches activation events" file="./spec/models/activation_key_spec.rb" time="0.012846"></testcase>
+<testcase classname="spec.models.activation_key_spec" name="ActivationKey uses flag_shih_tzu for featured" file="./spec/models/activation_key_spec.rb" time="0.007168"></testcase>
+<testcase classname="spec.models.activation_key_spec" name="ActivationKey validates required fields and enum" file="./spec/models/activation_key_spec.rb" time="0.003816"></testcase>
+<testcase classname="spec.models.activation_key_spec" name="ActivationKey prevents destroy" file="./spec/models/activation_key_spec.rb" time="0.012524"></testcase>
 </testsuite>
