@@ -247,6 +247,8 @@ GEM
     loofah (2.24.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
+    lucide-rails (0.7.1)
+      railties (>= 4.1.0)
     lumberjack (1.4.0)
     mail (2.8.1)
       mini_mime (>= 0.1.1)
@@ -625,6 +627,7 @@ DEPENDENCIES
   kamal
   kettle-soup-cover (~> 1.0, >= 1.0.10)
   litestream (~> 0.14.0)
+  lucide-rails
   omniauth (~> 2.1)
   omniauth-identity (~> 3.0)
   propshaft

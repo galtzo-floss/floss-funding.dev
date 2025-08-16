@@ -40,7 +40,10 @@
             <%= link_to 'Projects', projects_path, class: 'text-van-cleef hover:text-christi' %>
             <%= link_to 'Libraries', libraries_path, class: 'text-van-cleef hover:text-christi' %>
             <%= link_to 'Namespaces', namespaces_path, class: 'text-van-cleef hover:text-christi' %>
-            <%= link_to 'GitHub', 'https://github.com/galtzo-floss/floss-funding.dev', class: 'text-van-cleef hover:text-christi', target: '_blank', rel: 'noopener' %>
+            <%= link_to 'https://github.com/galtzo-floss/floss-funding.dev', class: 'text-van-cleef hover:text-christi flex items-center gap-1', target: '_blank', rel: 'noopener' do %>
+              <%= lucide_icon 'github', class: 'w-4 h-4' %>
+              <span>GitHub</span>
+            <% end %>
             <% if current_account %>
               <%= link_to 'Log out', session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?' }, class: 'text-tamarillo hover:text-van-cleef' %>
             <% else %>
