@@ -1,4 +1,4 @@
-<div class="max-w-3xl mx-auto p-6 space-y-6">
+<div class="max-w-10xl mx-auto p-6 space-y-6">
   <div>
     <h1 class="text-3xl font-semibold text-van-cleef">
       <%= @activation_key.namespace %>/<%= @activation_key.key %>
@@ -36,6 +36,20 @@
       <% else %>
         <p class="mt-2 text-gray-600">Provide project name and URL to generate your badge.</p>
       <% end %>
+    </div>
+  <% end %>
+
+  <% if @namespace_activation_keys.present? %>
+    <div class="border-t pt-6">
+      <h2 class="text-xl font-semibold">All activation keys in “<%= @activation_key.namespace %>”</h2>
+      <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <% @namespace_activation_keys.each do |k| %>
+          <li>
+            <%= link_to "#{k.namespace}/#{k.key}", activation_key_path(k), class: "text-christi hover:underline" %>
+            <span class="ml-2 inline-block align-middle px-2 py-0.5 rounded-full bg-gray-100 text-gray-800 text-xs"><%= k.ecosystem %></span>
+          </li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
 </div>

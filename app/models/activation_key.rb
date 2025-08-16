@@ -9,7 +9,8 @@ class ActivationKey < ApplicationRecord
   validates :key, presence: true, uniqueness: { scope: :namespace, case_sensitive: false }
   validates :ecosystem, presence: true
 
-  validates :project_name, presence: true, length: { minimum: 2, maximum: 100 }, format: { with: /\A[[:alnum:]][[:alnum:] ._\-+\/]{1,99}\z/, message: 'must be 2-100 characters with letters, numbers, spaces, and ._-+/' }
+  validates :project_name, presence: true, if: :free_for_open_source?
+  validates :project_name, length: { minimum: 2, maximum: 100 }, format: { with: /\A[[:alnum:]][[:alnum:] ._\-+\/]{1,99}\z/, message: 'must be 2-100 characters with letters, numbers, spaces, and ._-+/' }, allow_blank: true
   validates :project_url, presence: true, if: :free_for_open_source?
 
   has_enumeration_for :ecosystem, with: Ecosystem, create_helpers: true, required: true

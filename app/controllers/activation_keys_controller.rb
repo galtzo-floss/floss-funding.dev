@@ -7,6 +7,7 @@ class ActivationKeysController < ApplicationController
 
   def show
     @activation_key = ActivationKey.find(params[:id])
+    @namespace_activation_keys = ActivationKey.where(namespace: @activation_key.namespace).order(:key)
   end
 
   def new
