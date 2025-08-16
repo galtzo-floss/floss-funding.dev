@@ -24,7 +24,31 @@
   </head>
 
   <body>
-    <main class="<%= content_for?(:main_class) ? yield(:main_class) : 'container mx-auto mt-28 px-5 flex' %>">
+    <header class="fixed top-0 inset-x-0 bg-white/90 backdrop-blur shadow z-50">
+      <div class="container mx-auto px-5">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center space-x-4">
+            <%= link_to root_path, class: 'flex items-center space-x-2 text-van-cleef font-semibold hover:opacity-80' do %>
+              <img src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px-blank.svg" alt="FLOSS Funding" class="h-8 w-8">
+              <span>FLOSS Funding</span>
+            <% end %>
+          </div>
+          <nav class="flex items-center space-x-6 text-sm">
+            <%= link_to 'Home', root_path, class: 'text-van-cleef hover:text-christi' %>
+            <%= link_to 'About', about_path, class: 'text-van-cleef hover:text-christi' %>
+            <%= link_to 'Activation Keys', activation_keys_path, class: 'text-van-cleef hover:text-christi' %>
+            <%= link_to 'GitHub', 'https://github.com/galtzo-floss/floss-funding.dev', class: 'text-van-cleef hover:text-christi', target: '_blank', rel: 'noopener' %>
+            <% if current_account %>
+              <%= link_to 'Log out', session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?' }, class: 'text-tamarillo hover:text-van-cleef' %>
+            <% else %>
+              <%= link_to 'Log in', new_session_path, class: 'text-van-cleef hover:text-christi' %>
+            <% end %>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-20 <%= content_for?(:main_class) ? yield(:main_class) : 'container mx-auto px-5 flex' %>">
       <%= yield %>
     </main>
   </body>

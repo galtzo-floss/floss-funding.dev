@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   resources :accounts, only: [:new, :create]
 
   # Activation keys
-  resources :activation_keys, only: [:index, :new, :create, :show]
+  resources :activation_keys, only: [:index, :new, :create, :show, :edit, :update]
+
+  # Static pages
+  get "about" => "welcome#about", as: :about
 
   # Defines the root path route ("/")
   root "welcome#index"

@@ -1,12 +1,17 @@
 <div class="max-w-10xl mx-auto p-6 space-y-6">
-  <div>
-    <h1 class="text-3xl font-semibold text-van-cleef">
-      <%= @activation_key.namespace %>/<%= @activation_key.key %>
-    </h1>
-    <p class="mt-2 text-gray-600">Ecosystem: <span class="font-medium"><%= @activation_key.ecosystem %></span></p>
-    <% if @activation_key.featured? %>
-      <p class="mt-1 inline-block px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-800 text-xs">Featured</p>
-    <% end %>
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <h1 class="text-3xl font-semibold text-van-cleef">
+        <%= @activation_key.namespace %>/<%= @activation_key.key %>
+      </h1>
+      <p class="mt-2 text-gray-600">Ecosystem: <span class="font-medium"><%= @activation_key.ecosystem %></span></p>
+      <% if @activation_key.featured? %>
+        <p class="mt-1 inline-block px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-800 text-xs">Featured</p>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to 'Edit', edit_activation_key_path(@activation_key), class: 'inline-block px-4 py-2 text-sm bg-christi text-white rounded hover:bg-bright-green' %>
+    </div>
   </div>
 
   <% if @activation_key.free_for_open_source? %>

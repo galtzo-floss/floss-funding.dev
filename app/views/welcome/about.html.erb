@@ -1,0 +1,12 @@
+<% content_for :title do %>About · FLOSS Funding<% end %>
+<% content_for :main_class do %>container mx-auto px-5 flex<% end %>
+
+<div class="prose max-w-3xl">
+  <h1>About FLOSS Funding</h1>
+  <p>FLOSS Funding helps maintainers and users of Free/Libre Open Source Software connect around funding and recognition.</p>
+  <p>This site is an experiment to make it easier to generate activation keys, display badges, and highlight ways to support the software you depend on.</p>
+  <p>
+    Explore the code on GitHub or get started by creating
+    <%= link_to 'Activation Keys', activation_keys_path, class: 'text-christi hover:underline' %>.
+  </p>
+</div>
