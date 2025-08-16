@@ -5,6 +5,6 @@ class LibrariesController < ApplicationController
 
   def show
     @library = Library.find(params[:id])
-    @activation_keys = @library.activation_keys.order(:namespace, :key)
+    @activation_keys = @library.activation_keys.where(retired: false).order(:namespace, :key)
   end
 end

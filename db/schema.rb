@@ -46,10 +46,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_16_223500) do
     t.integer "project_id"
     t.integer "library_id", null: false
     t.integer "namespace_id", null: false
+    t.boolean "retired", default: false, null: false
     t.index ["library_id"], name: "index_activation_keys_on_library_id"
     t.index ["namespace", "key"], name: "index_activation_keys_on_namespace_and_key", unique: true
     t.index ["namespace_id"], name: "index_activation_keys_on_namespace_id"
     t.index ["project_id"], name: "index_activation_keys_on_project_id"
+    t.index ["retired"], name: "index_activation_keys_on_retired"
   end
 
   create_table "identities", force: :cascade do |t|

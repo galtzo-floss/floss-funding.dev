@@ -9,6 +9,9 @@ class ActivationKey < ApplicationRecord
   has_flags 1 => :featured,
             2 => :free_for_open_source
 
+  # Named scope for non-retired records (do not use default scopes)
+  scope :active, -> { where(retired: false) }
+
   validates :namespace, presence: true
   validates :key, presence: true, uniqueness: { scope: :namespace, case_sensitive: false }
   validates :ecosystem, presence: true

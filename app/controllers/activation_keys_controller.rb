@@ -3,11 +3,11 @@ class ActivationKeysController < ApplicationController
   before_action :set_activation_key, only: [:show, :edit, :update]
 
   def index
-    @activation_keys = ActivationKey.order(created_at: :desc)
+    @activation_keys = ActivationKey.active.order(created_at: :desc)
   end
 
   def show
-    @namespace_activation_keys = ActivationKey.where(namespace: @activation_key.namespace).order(:key)
+    @namespace_activation_keys = ActivationKey.active.where(namespace: @activation_key.namespace).order(:key)
   end
 
   def new
@@ -42,11 +42,11 @@ class ActivationKeysController < ApplicationController
 
   def activation_key_params
     # Creation params: allow all fields necessary to create
-    params.require(:activation_key).permit(:library_name, :namespace, :key, :ecosystem, :featured, :free_for_open_source, :project_name, :project_url)
+    params.require(:activation_key).permit(:library_name, :namespace, :key, :ecosystem, :featured, :free_for_open_source, :project_name, :project_url, :retired)
   end
 
   def activation_key_update_params
     # Update params: allow only the fields specified in the requirement
-    params.require(:activation_key).permit(:project_url, :library_name, :project_name, :featured, :free_for_open_source)
+    params.require(:activation_key).permit(:project_url, :library_name, :project_name, :featured, :free_for_open_source, :retired)
   end
 end

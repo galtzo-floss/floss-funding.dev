@@ -18,6 +18,11 @@
       <%= f.label :free_for_open_source, 'Free for open source', class: 'ml-2 block text-sm text-van-cleef' %>
     </div>
 
+    <div class="flex items-center">
+      <%= f.check_box :retired, class: 'h-4 w-4 text-red-600 border-gray-300 rounded' %>
+      <%= f.label :retired, 'Retired (hide from all lists)', class: 'ml-2 block text-sm text-van-cleef' %>
+    </div>
+
     <div data-activation-key-form-target="ossFields" class="space-y-6">
       <div>
         <%= f.label :project_name, 'Project name', class: 'block text-base font-medium text-gray-700', id: 'label_project_name' %>

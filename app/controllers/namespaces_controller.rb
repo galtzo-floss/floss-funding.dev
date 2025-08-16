@@ -5,6 +5,6 @@ class NamespacesController < ApplicationController
 
   def show
     @namespace = Namespace.find(params[:id])
-    @activation_keys = @namespace.activation_keys.order(:key)
+    @activation_keys = @namespace.activation_keys.where(retired: false).order(:key)
   end
 end

@@ -1,0 +1,32 @@
+<div class="max-w-4xl mx-auto p-6">
+  <div class="mb-6">
+    <h1 class="text-2xl font-semibold mb-4">Retired Activation Keys</h1>
+    <p class="text-sm text-gray-600">These keys are no longer active.</p>
+  </div>
+  <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <ul role="list" class="divide-y divide-gray-200">
+      <% @activation_keys.each do |k| %>
+        <li class="px-4 py-4 sm:px-6">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-christi truncate"><%= link_to "#{k.namespace}/#{k.key}", activation_key_path(k), class: 'hover:underline' %></p>
+            <div class="ml-2 flex-shrink-0 flex items-center">
+              <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"><%= k.ecosystem %></p>
+              <p class="ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Retired</p>
+            </div>
+          </div>
+          <div class="mt-2 sm:flex sm:justify-between">
+            <div class="sm:flex">
+              <p class="flex items-center text-sm text-gray-500">
+                <span class="mr-1">Events:</span>
+                <%= k.activation_event_count %>
+              </p>
+            </div>
+            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+              <p>Retired <%= time_ago_in_words(k.updated_at) %> ago</p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

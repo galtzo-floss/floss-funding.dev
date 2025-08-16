@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   # Activation keys
   resources :activation_keys, only: [:index, :new, :create, :show, :edit, :update]
+  resources :retired_activation_keys, only: [:index]
 
   # Index lists
   resources :projects, only: [:index, :show]
