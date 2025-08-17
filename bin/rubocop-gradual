@@ -7,7 +7,7 @@ require "rubygems"
 require "bundler/setup"
 
 # NOTE: needs to load before active_support, so the magic will work.
-require "activesupport-tagged_logging"
+# require "activesupport-tagged_logging"
 Activesupport::FixPr53105.init
 
 load Gem.bin_path("rubocop-gradual", "rubocop-gradual")

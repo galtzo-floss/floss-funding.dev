@@ -117,15 +117,18 @@ gem "lucide-rails"
 gem "active_security"
 # ActiveRecord / ActiveSupport extensions and utilities
 # gem "activerecord-transactionable"
-# These ActiveSupport logger helpers are present but not auto-required to avoid boot order issues.
-gem "activesupport-broadcast_logger", require: false
-gem "activesupport-logger", require: false
-gem "activesupport-tagged_logging", require: false
+# TODO: Can't use these until fixed:
+#       ActiveSupport::Concern::MultipleIncludedBlocks: Cannot define multiple 'included' blocks for a Concern (ActiveSupport::Concern::MultipleIncludedBlocks)
+#       Reproduce with:
+#          RAILS_ENV=production bin/rails assets:precompile
+# gem "activesupport-broadcast_logger", require: false
+# gem "activesupport-logger", require: false
+# gem "activesupport-tagged_logging", require: false
 # Error and tagging helpers
 # gem "destination_errors"
 # Migrations and data management
 # gem "seed_migration"
 # Model utilities
-gem "shiftable"
+# gem "shiftable"
 # gem "simple_column-scopes" # TODO: Fix circular require warning
 # gem "status_tag"
