@@ -24,7 +24,7 @@ jobs:
             DEFAULT_FROM="no-reply@galtzo.com" \
             ENABLE_SANITIZE_EMAIL="true" \
             SANITIZE_TO="qa-mails@galtzo.com" \
-            SMTP_PASSWORD="${SMTP_PASSWORD}"
+            SMTP_PASSWORD="${SMTP_PASSWORD}" \
             SENTRY_DSN="${SENTRY_DSN}"
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
