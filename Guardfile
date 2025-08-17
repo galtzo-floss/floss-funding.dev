@@ -12,7 +12,7 @@
 #  - port: default to 3000 (can be overridden via ENV["PORT"])
 port = (ENV["PORT"] || "3000").to_i
 
-guard :rails, port: port, environment: ENV["RAILS_ENV"] || "development", server: "puma", start_on_start: true, force_run: true do
+guard :rails, port: port, environment: ENV["RAILS_ENV"] || "development", start_on_start: true, force_run: true do
   # Common triggers for server restart
   watch("Gemfile.lock")
   watch(%r{^config/(application|routes|environments)/.*\.rb$})
