@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "OmniAuth callbacks", type: :request do
+RSpec.describe "OmniAuth callbacks" do
   include_context "with stubbed env"
 
   before do
