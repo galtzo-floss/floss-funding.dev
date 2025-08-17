@@ -13,6 +13,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
+      - name: Set Fly.io secrets (SMTP + QA email sanitization)
+        run: |
+          # Set or update secrets on the Fly app. These persist between deploys.
+          flyctl secrets set \
+            SMTP_ADDRESS="smtp.dreamhost.com" \
+            SMTP_PORT="465" \
+            SMTP_USERNAME="FLOSS@galtzo.com" \
+            SMTP_DOMAIN="galtzo.com" \
+            DEFAULT_FROM="no-reply@galtzo.com" \
+            ENABLE_SANITIZE_EMAIL="true" \
+            SANITIZE_TO="qa-mails@galtzo.com" \
+            SMTP_PASSWORD="${SMTP_PASSWORD}"
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      - name: Deploy to Fly.io
+        run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
