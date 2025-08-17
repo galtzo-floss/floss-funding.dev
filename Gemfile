@@ -44,6 +44,11 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
+  # Development-time benchmarking and logging aids
+  gem "require_bench", require: false
+  gem "debug_logging", require: false
+  gem "gem_bench", require: false
+
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
@@ -71,6 +76,7 @@ group :development do
   # File watching to auto-run tasks in development
   gem "guard", require: false
   gem "guard-rake", require: false
+  gem "guard-rails", require: false
 end
 
 group :test do
@@ -105,3 +111,21 @@ gem "enumerate_it", "~> 4.1"
 gem "tailwindcss-rails", "~> 2.6"
 
 gem "lucide-rails"
+
+# Runtime additions
+# Security and safety
+gem "active_security"
+# ActiveRecord / ActiveSupport extensions and utilities
+gem "activerecord-transactionable"
+# These ActiveSupport logger helpers are present but not auto-required to avoid boot order issues.
+gem "activesupport-broadcast_logger", require: false
+gem "activesupport-logger", require: false
+gem "activesupport-tagged_logging", require: false
+# Error and tagging helpers
+gem "destination_errors"
+# Migrations and data management
+gem "seed_migration"
+# Model utilities
+gem "shiftable"
+# gem "simple_column-scopes" # TODO: Fix circular require warning
+gem "status_tag"

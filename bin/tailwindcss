@@ -13,4 +13,8 @@ ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
 require "rubygems"
 require "bundler/setup"
 
+# NOTE: needs to load before active_support, so the magic will work.
+require "activesupport-tagged_logging"
+Activesupport::FixPr53105.init
+
 load Gem.bin_path("tailwindcss-rails", "tailwindcss")

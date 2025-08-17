@@ -44,6 +44,10 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
+    active_security (1.0.1)
+      activerecord (>= 7.0)
+      activesupport (>= 7.0)
+      version_gem (~> 1.1, >= 1.1.4)
     activejob (8.0.2.1)
       activesupport (= 8.0.2.1)
       globalid (>= 0.3.6)
@@ -53,6 +57,10 @@ GEM
       activemodel (= 8.0.2.1)
       activesupport (= 8.0.2.1)
       timeout (>= 0.4.0)
+    activerecord-transactionable (3.0.3)
+      activemodel (>= 5.2.8.1)
+      activerecord (>= 5.2.8.1)
+      version_gem (~> 1.1, >= 1.1.3)
     activestorage (8.0.2.1)
       actionpack (= 8.0.2.1)
       activejob (= 8.0.2.1)
@@ -72,6 +80,28 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
+    activesupport-broadcast_logger (2.0.4)
+      activesupport (>= 5.2)
+      activesupport-logger (~> 2.0, >= 2.0.3)
+      logger (~> 1.6, >= 1.6.1)
+      mutex_m (~> 0.1)
+      stringio (>= 0.0.2)
+      version_gem (~> 1.1, >= 1.1.6)
+    activesupport-logger (2.0.3)
+      activesupport (>= 5.2)
+      backports (~> 3.25, >= 3.25.0)
+      logger (~> 1.6, >= 1.6.1)
+      mutex_m (~> 0.1)
+      stringio (>= 0.0.2)
+      version_gem (~> 1.1, >= 1.1.4)
+    activesupport-tagged_logging (2.0.3)
+      activesupport (>= 5.2)
+      activesupport-broadcast_logger (~> 2.0, >= 2.0.3)
+      activesupport-logger (~> 2.0, >= 2.0.3)
+      logger (~> 1.6, >= 1.6.1)
+      mutex_m (~> 0.1)
+      stringio (>= 0.0.2)
+      version_gem (~> 1.1, >= 1.1.4)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ansi (1.5.0)
@@ -95,6 +125,7 @@ GEM
       aws-sigv4 (~> 1.5)
     aws-sigv4 (1.12.1)
       aws-eventstream (~> 1, >= 1.0.2)
+    backports (3.25.1)
     base64 (0.3.0)
     bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
@@ -123,6 +154,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     coderay (1.1.3)
+    colorize (1.1.0)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.3)
     crass (1.0.6)
@@ -130,6 +162,11 @@ GEM
     debug (1.11.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    debug_logging (4.0.2)
+      colorize
+      version_gem (~> 1.1, >= 1.1.4)
+    destination_errors (0.0.6)
+      activemodel (>= 3.1)
     diff-lcs (1.6.2)
     diffy (3.4.4)
     docile (1.4.1)
@@ -157,6 +194,9 @@ GEM
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
+    gem_bench (2.0.5)
+      bundler (>= 1.14)
+      version_gem (~> 1.1, >= 1.1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
     guard (2.19.1)
@@ -170,6 +210,10 @@ GEM
       pry (>= 0.13.0)
       shellany (~> 0.0)
       thor (>= 0.18.1)
+    guard-compat (1.2.1)
+    guard-rails (0.8.1)
+      guard (~> 2.11)
+      guard-compat (~> 1.0)
     guard-rake (1.0.0)
       guard
       rake
@@ -384,6 +428,8 @@ GEM
     regexp_parser (2.11.2)
     reline (0.6.2)
       io-console (~> 0.5)
+    require_bench (1.0.4)
+      version_gem (>= 1.1.3, < 4)
     rexml (3.4.1)
     rspec-block_is_expected (1.0.6)
     rspec-core (3.13.5)
@@ -481,6 +527,7 @@ GEM
       mail (~> 2.0)
       version_gem (~> 1.1, >= 1.1.4)
     securerandom (0.4.1)
+    seed_migration (1.2.3)
     selenium-webdriver (4.35.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -488,6 +535,8 @@ GEM
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     shellany (0.0.1)
+    shiftable (0.7.0)
+      activerecord (>= 5)
     silent_stream (1.0.11)
       logger (~> 1.2)
       version_gem (>= 1.1.8, < 3)
@@ -558,6 +607,7 @@ GEM
       standard-custom (>= 1.0.2, < 2)
       standard-performance (>= 1.3.1, < 2)
       version_gem (>= 1.1.4, < 3)
+    status_tag (0.2.0)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.7)
@@ -615,6 +665,11 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  active_security
+  activerecord-transactionable
+  activesupport-broadcast_logger
+  activesupport-logger
+  activesupport-tagged_logging
   aws-sdk-s3 (~> 1.196)
   bcrypt (~> 3.1)
   betterlint
@@ -622,10 +677,14 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  debug_logging
+  destination_errors
   dockerfile-rails (>= 1.7)
   enumerate_it (~> 4.1)
   flag_shih_tzu (~> 0.3.23)
+  gem_bench
   guard
+  guard-rails
   guard-rake
   importmap-rails
   jbuilder
@@ -639,13 +698,16 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 8.0.2)
   redis (~> 5.4)
+  require_bench
   rspec-block_is_expected (~> 1.0, >= 1.0.6)
   rspec-rails (~> 6.1)
   rspec-stubbed_env (~> 1.0, >= 1.0.4)
   rspec_junit_formatter (~> 0.6)
   rubocop-lts (~> 24.0, >= 24.0.2)
   sanitize_email (~> 2.0, >= 2.0.10)
+  seed_migration
   selenium-webdriver
+  shiftable
   silent_stream (~> 1.0, >= 1.0.11)
   solid_cable
   solid_cache
@@ -653,6 +715,7 @@ DEPENDENCIES
   sqlite3 (>= 2.1)
   standard (>= 1.50)
   standard-rails
+  status_tag
   stimulus-rails
   tailwindcss-rails (~> 2.6)
   thruster

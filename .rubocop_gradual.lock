@@ -1,9 +1,59 @@
 {
-  "Rakefile:480582207": [
-    [10, 9, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544]
+  "Guardfile:2659384387": [
+    [13, 9, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544],
+    [15, 40, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544]
   ],
-  "config/environments/production.rb:2945373677": [
+  "Rakefile:4073279226": [
+    [54, 9, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544],
+    [64, 5, 15, "Rake/Desc: Describe the task with `desc` method.", 842824456],
+    [242, 8, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544],
+    [255, 19, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544]
+  ],
+  "app/controllers/accounts_controller.rb:641114525": [
+    [14, 7, 73, "Betterment/RedirectStatus: Did you forget to specify an HTTP status code? The default is `status: :found`, which is usually inappropriate in this situation. Use `status: :see_other` when redirecting a POST, PUT, PATCH, or DELETE request to a GET resource. ", 2359104707]
+  ],
+  "app/controllers/activation_keys_controller.rb:3200591986": [
+    [20, 7, 67, "Betterment/RedirectStatus: Did you forget to specify an HTTP status code? The default is `status: :found`, which is usually inappropriate in this situation. Use `status: :see_other` when redirecting a POST, PUT, PATCH, or DELETE request to a GET resource. ", 1698494440],
+    [31, 7, 83, "Betterment/RedirectStatus: Did you forget to specify an HTTP status code? The default is `status: :found`, which is usually inappropriate in this situation. Use `status: :see_other` when redirecting a POST, PUT, PATCH, or DELETE request to a GET resource. ", 3069463315],
+    [40, 23, 31, "Betterment/UnscopedFind: Records are being retrieved directly using user input.\nPlease query for the associated record in a way that enforces authorization (e.g. \"trust-root chaining\").\n\nINSTEAD OF THIS:\nPost.find(params[:post_id])\n\nDO THIS:\ncurrent_user.posts.find(params[:post_id])\n\nSee here for more information on this error:\nhttps://github.com/Betterment/betterlint/blob/main/README.md#bettermentunscopedfind\n (https://github.com/Betterment/betterlint#bettermentunscopedfind)", 2273494657]
+  ],
+  "app/controllers/libraries_controller.rb:3365430375": [
+    [7, 16, 25, "Betterment/UnscopedFind: Records are being retrieved directly using user input.\nPlease query for the associated record in a way that enforces authorization (e.g. \"trust-root chaining\").\n\nINSTEAD OF THIS:\nPost.find(params[:post_id])\n\nDO THIS:\ncurrent_user.posts.find(params[:post_id])\n\nSee here for more information on this error:\nhttps://github.com/Betterment/betterlint/blob/main/README.md#bettermentunscopedfind\n (https://github.com/Betterment/betterlint#bettermentunscopedfind)", 3044020605]
+  ],
+  "app/controllers/namespaces_controller.rb:2464841682": [
+    [7, 18, 27, "Betterment/UnscopedFind: Records are being retrieved directly using user input.\nPlease query for the associated record in a way that enforces authorization (e.g. \"trust-root chaining\").\n\nINSTEAD OF THIS:\nPost.find(params[:post_id])\n\nDO THIS:\ncurrent_user.posts.find(params[:post_id])\n\nSee here for more information on this error:\nhttps://github.com/Betterment/betterlint/blob/main/README.md#bettermentunscopedfind\n (https://github.com/Betterment/betterlint#bettermentunscopedfind)", 2197853089]
+  ],
+  "app/controllers/password_resets_controller.rb:3000382474": [
+    [10, 16, 30, "Betterment/UnscopedFind: Records are being retrieved directly using user input.\nPlease query for the associated record in a way that enforces authorization (e.g. \"trust-root chaining\").\n\nINSTEAD OF THIS:\nPost.find(params[:post_id])\n\nDO THIS:\ncurrent_user.posts.find(params[:post_id])\n\nSee here for more information on this error:\nhttps://github.com/Betterment/betterlint/blob/main/README.md#bettermentunscopedfind\n (https://github.com/Betterment/betterlint#bettermentunscopedfind)", 3501032999],
+    [18, 5, 103, "Betterment/RedirectStatus: Did you forget to specify an HTTP status code? The default is `status: :found`, which is usually inappropriate in this situation. Use `status: :see_other` when redirecting a POST, PUT, PATCH, or DELETE request to a GET resource. ", 728853825],
+    [22, 14, 49, "Betterment/UnscopedFind: Records are being retrieved directly using user input.\nPlease query for the associated record in a way that enforces authorization (e.g. \"trust-root chaining\").\n\nINSTEAD OF THIS:\nPost.find(params[:post_id])\n\nDO THIS:\ncurrent_user.posts.find(params[:post_id])\n\nSee here for more information on this error:\nhttps://github.com/Betterment/betterlint/blob/main/README.md#bettermentunscopedfind\n (https://github.com/Betterment/betterlint#bettermentunscopedfind)", 302630880],
+    [29, 14, 49, "Betterment/UnscopedFind: Records are being retrieved directly using user input.\nPlease query for the associated record in a way that enforces authorization (e.g. \"trust-root chaining\").\n\nINSTEAD OF THIS:\nPost.find(params[:post_id])\n\nDO THIS:\ncurrent_user.posts.find(params[:post_id])\n\nSee here for more information on this error:\nhttps://github.com/Betterment/betterlint/blob/main/README.md#bettermentunscopedfind\n (https://github.com/Betterment/betterlint#bettermentunscopedfind)", 302630880],
+    [31, 7, 124, "Betterment/RedirectStatus: Did you forget to specify an HTTP status code? The default is `status: :found`, which is usually inappropriate in this situation. Use `status: :see_other` when redirecting a POST, PUT, PATCH, or DELETE request to a GET resource. ", 2295044064],
+    [45, 7, 90, "Betterment/RedirectStatus: Did you forget to specify an HTTP status code? The default is `status: :found`, which is usually inappropriate in this situation. Use `status: :see_other` when redirecting a POST, PUT, PATCH, or DELETE request to a GET resource. ", 273810734]
+  ],
+  "app/controllers/projects_controller.rb:3678591547": [
+    [7, 16, 25, "Betterment/UnscopedFind: Records are being retrieved directly using user input.\nPlease query for the associated record in a way that enforces authorization (e.g. \"trust-root chaining\").\n\nINSTEAD OF THIS:\nPost.find(params[:post_id])\n\nDO THIS:\ncurrent_user.posts.find(params[:post_id])\n\nSee here for more information on this error:\nhttps://github.com/Betterment/betterlint/blob/main/README.md#bettermentunscopedfind\n (https://github.com/Betterment/betterlint#bettermentunscopedfind)", 2839845431]
+  ],
+  "app/controllers/sessions_controller.rb:1997657278": [
+    [8, 16, 39, "Betterment/UnscopedFind: Records are being retrieved directly using user input.\nPlease query for the associated record in a way that enforces authorization (e.g. \"trust-root chaining\").\n\nINSTEAD OF THIS:\nPost.find(params[:post_id])\n\nDO THIS:\ncurrent_user.posts.find(params[:post_id])\n\nSee here for more information on this error:\nhttps://github.com/Betterment/betterlint/blob/main/README.md#bettermentunscopedfind\n (https://github.com/Betterment/betterlint#bettermentunscopedfind)", 466184135],
+    [11, 7, 67, "Betterment/RedirectStatus: Did you forget to specify an HTTP status code? The default is `status: :found`, which is usually inappropriate in this situation. Use `status: :see_other` when redirecting a POST, PUT, PATCH, or DELETE request to a GET resource. ", 2087153367],
+    [20, 5, 44, "Betterment/RedirectStatus: Did you forget to specify an HTTP status code? The default is `status: :found`, which is usually inappropriate in this situation. Use `status: :see_other` when redirecting a POST, PUT, PATCH, or DELETE request to a GET resource. ", 1197536222]
+  ],
+  "app/mailers/application_mailer.rb:1362224": [
+    [2, 17, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544]
+  ],
+  "app/models/activation_event.rb:4180402370": [
+    [8, 30, 14, "Rails/RedundantPresenceValidationOnBelongsTo: Remove explicit presence validation for `activation_key`.", 2902869392]
+  ],
+  "app/models/password_reset_token.rb:3704136826": [
+    [9, 3, 155, "Style/ClassMethodsDefinitions: Use `class << self` to define a class method. (https://shopify.github.io/ruby-style-guide/#def-self-class-methods)", 4215762685]
+  ],
+  "config/environments/production.rb:4013298551": [
     [38, 55, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`. (https://shopify.github.io/ruby-style-guide/#global-stdout)", 3356722952]
+  ],
+  "config/routes.rb:4048084289": [
+    [14, 3, 87, "Betterment/NonStandardActions: Route goes to a non-standard controller action. Use a new controller instead of custom actions. (https://github.com/Betterment/betterlint#bettermentnonstandardactions)", 647732148],
+    [15, 3, 81, "Betterment/NonStandardActions: Route goes to a non-standard controller action. Use a new controller instead of custom actions. (https://github.com/Betterment/betterlint#bettermentnonstandardactions)", 3367398321]
   ],
   "lib/tasks/litestream.rake:1706274165": [
     [3, 21, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544],
@@ -13,5 +63,47 @@
     [47, 3, 9, "Rake/Desc: Describe the task with `desc` method.", 646371707],
     [50, 8, 3, "Betterment/EnvironmentConfiguration: Environment variables should be parsed at boot time and assigned to `Rails.configuration` or some other configurable object. (https://github.com/Betterment/betterlint#bettermentenvironmentconfiguration)", 193439544],
     [64, 3, 34, "Rake/Desc: Describe the task with `desc` method.", 3819656448]
+  ],
+  "spec/models/activation_event_spec.rb:3232225193": [
+    [3, 33, 12, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3768957202]
+  ],
+  "spec/models/activation_key_spec.rb:1789236403": [
+    [3, 31, 12, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3768957202]
+  ],
+  "spec/models/library_spec.rb:1177774550": [
+    [3, 25, 12, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3768957202]
+  ],
+  "spec/models/namespace_spec.rb:1975119208": [
+    [3, 27, 12, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3768957202]
+  ],
+  "spec/models/password_reset_token_spec.rb:2289394840": [
+    [26, 16, 18, "RSpec/DescribedClass: Use `described_class` instead of `PasswordResetToken`. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/DescribedClass)", 3854164308],
+    [27, 14, 18, "RSpec/DescribedClass: Use `described_class` instead of `PasswordResetToken`. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/DescribedClass)", 3854164308],
+    [28, 17, 18, "RSpec/DescribedClass: Use `described_class` instead of `PasswordResetToken`. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/DescribedClass)", 3854164308],
+    [39, 15, 18, "RSpec/DescribedClass: Use `described_class` instead of `PasswordResetToken`. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/DescribedClass)", 3854164308]
+  ],
+  "spec/models/project_spec.rb:1948182911": [
+    [3, 25, 12, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3768957202]
+  ],
+  "spec/rails_helper.rb:3520371435": [
+    [18, 3, 51, "Style/InvertibleUnlessCondition: Prefer `if error.message.exclude?(\"kettle\")` over `unless error.message.include?(\"kettle\")`.", 3279823285]
+  ],
+  "spec/requests/activation_keys_retired_spec.rb:1348900997": [
+    [3, 51, 14, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3155451116]
+  ],
+  "spec/requests/activation_keys_show_namespace_spec.rb:504016118": [
+    [3, 53, 14, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3155451116]
+  ],
+  "spec/requests/activation_keys_spec.rb:695125108": [
+    [3, 34, 14, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3155451116]
+  ],
+  "spec/requests/activation_keys_update_spec.rb:1505695512": [
+    [3, 42, 14, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3155451116]
+  ],
+  "spec/requests/authentication_spec.rb:1703192082": [
+    [3, 34, 14, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3155451116]
+  ],
+  "spec/requests/welcome_spec.rb:4086808999": [
+    [3, 32, 14, "RSpecRails/InferredSpecType: Remove redundant spec type. (https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/InferredSpecType)", 3155451116]
   ]
 }

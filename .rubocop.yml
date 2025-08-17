@@ -3,3 +3,6 @@ inherit_gem: { rubocop-lts: config/rails_rspec.yml }
 
 Layout/IndentationConsistency:
   Exclude: ['*.md']
+
+Capybara/RSpec/PredicateMatcher:
+  Enabled: false
