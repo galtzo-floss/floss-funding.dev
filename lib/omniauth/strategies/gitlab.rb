@@ -11,7 +11,7 @@ module OmniAuth
       option :client_options, {
         site: "https://gitlab.com",
         authorize_url: "/oauth/authorize",
-        token_url: "/oauth/token"
+        token_url: "/oauth/token",
       }
 
       option :scope, "read_user"
@@ -24,12 +24,12 @@ module OmniAuth
           email: raw_info["email"],
           nickname: raw_info["username"],
           image: raw_info["avatar_url"],
-          urls: { profile: raw_info["web_url"] }
+          urls: {profile: raw_info["web_url"]},
         }
       end
 
       extra do
-        { raw_info: raw_info }
+        {raw_info: raw_info}
       end
 
       def raw_info

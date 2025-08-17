@@ -25,9 +25,11 @@ jobs:
             ENABLE_SANITIZE_EMAIL="true" \
             SANITIZE_TO="qa-mails@galtzo.com" \
             SMTP_PASSWORD="${SMTP_PASSWORD}"
+            SENTRY_DSN="${SENTRY_DSN}"
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       - name: Deploy to Fly.io
         run: flyctl deploy --remote-only
         env:

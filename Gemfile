@@ -118,7 +118,10 @@ gem "tailwindcss-rails", "~> 2.6"
 
 gem "lucide-rails"
 
-# Runtime additions
+gem "sentry-ruby"
+gem "sentry-rails"
+
+# Experimental additions
 # Security and safety
 gem "active_security"
 # ActiveRecord / ActiveSupport extensions and utilities

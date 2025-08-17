@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     end
 
     email = auth.dig("info", "email")
-    name  = auth.dig("info", "name") || auth.dig("info", "nickname")
+    name = auth.dig("info", "name") || auth.dig("info", "nickname")
 
     unless email.present?
       redirect_to(new_session_path, alert: "Authentication succeeded but no email was provided. Please ensure email scope is granted and public/primary email is set.") and return

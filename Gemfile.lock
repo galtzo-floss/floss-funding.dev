@@ -533,6 +533,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
+    sentry-rails (5.26.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.26.0)
+    sentry-ruby (5.26.0)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     shellany (0.0.1)
     silent_stream (1.0.11)
       logger (~> 1.2)
@@ -703,6 +709,8 @@ DEPENDENCIES
   rubocop-lts (~> 24.0, >= 24.0.2)
   sanitize_email (~> 2.0, >= 2.0.10)
   selenium-webdriver
+  sentry-rails
+  sentry-ruby
   silent_stream (~> 1.0, >= 1.0.11)
   solid_cable
   solid_cache

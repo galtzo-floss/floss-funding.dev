@@ -18,7 +18,7 @@ RSpec.describe "OmniAuth callbacks", type: :request do
     mock_auth = OmniAuth::AuthHash.new(
       provider: "github",
       uid: "12345",
-      info: { email: "dev@example.org", name: "Dev Example" }
+      info: {email: "dev@example.org", name: "Dev Example"},
     )
     OmniAuth.config.add_mock(:github, mock_auth)
 
@@ -36,7 +36,7 @@ RSpec.describe "OmniAuth callbacks", type: :request do
     mock_auth = OmniAuth::AuthHash.new(
       provider: "github",
       uid: "99999",
-      info: { email: nil, name: "No Email" }
+      info: {email: nil, name: "No Email"},
     )
     OmniAuth.config.add_mock(:github, mock_auth)
 

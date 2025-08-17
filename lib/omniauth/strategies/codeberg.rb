@@ -12,7 +12,7 @@ module OmniAuth
       option :client_options, {
         site: "https://codeberg.org",
         authorize_url: "/login/oauth/authorize",
-        token_url: "/login/oauth/access_token"
+        token_url: "/login/oauth/access_token",
       }
 
       # Request basic user scope to access profile email if available
@@ -27,13 +27,13 @@ module OmniAuth
           nickname: raw_info["login"],
           image: raw_info["avatar_url"],
           urls: {
-            profile: raw_info["html_url"] || "https://codeberg.org/#{raw_info["login"]}"
-          }
+            profile: raw_info["html_url"] || "https://codeberg.org/#{raw_info["login"]}",
+          },
         }
       end
 
       extra do
-        { raw_info: raw_info }
+        {raw_info: raw_info}
       end
 
       def raw_info
@@ -42,14 +42,12 @@ module OmniAuth
 
       # Attempt to fetch emails; requires the token to permit it.
       def primary_email_from_api
-        begin
-          emails = access_token.get("/api/v1/user/emails").parsed
-          # Find primary and verified if available
-          primary = emails.find { |e| e["primary"] } || emails.find { |e| e["verified"] }
-          (primary && primary["email"]) || nil
-        rescue StandardError
-          nil
-        end
+        emails = access_token.get("/api/v1/user/emails").parsed
+        # Find primary and verified if available
+        primary = emails.find { |e| e["primary"] } || emails.find { |e| e["verified"] }
+        (primary && primary["email"]) || nil
+      rescue StandardError
+        nil
       end
     end
   end

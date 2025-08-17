@@ -31,7 +31,7 @@ Rails.application.config.middleware.use(OmniAuth::Builder) do
     provider :gitlab,
       ENV["GITLAB_CLIENT_ID"],
       ENV["GITLAB_CLIENT_SECRET"],
-      client_options: { site: gitlab_site },
+      client_options: {site: gitlab_site},
       scope: "read_user",
       provider_ignores_state: false
   end
@@ -43,7 +43,7 @@ Rails.application.config.middleware.use(OmniAuth::Builder) do
       ENV["CODEBERG_CLIENT_SECRET"],
       scope: "read:user",
       client_options: {
-        site: ENV["CODEBERG_SITE"].presence || "https://codeberg.org"
+        site: ENV["CODEBERG_SITE"].presence || "https://codeberg.org",
       },
       provider_ignores_state: false
   end
