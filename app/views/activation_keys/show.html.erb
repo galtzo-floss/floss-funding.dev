@@ -46,6 +46,51 @@
           <p class="text-sm text-gray-600 mb-2">Markdown:</p>
           <pre class="p-4 bg-gray-100 rounded overflow-x-auto text-sm"><code><%= @activation_key.badge_markdown %></code></pre>
         </div>
+
+        <div class="mt-4">
+          <p class="text-sm text-gray-600 mb-2">Rendered badge (for-the-badge):</p>
+          <div class="p-4 bg-white rounded border inline-block">
+            <% # Build a second badge in the requested style, using project and library names %>
+            <% label2 = "#{@activation_key.project_name} ❤️ #{@activation_key.library_name}" %>
+            <% encoded_label2 = ERB::Util.url_encode(label2) %>
+            <% # Choose logo similar to model helper
+               logo2 = case @activation_key.ecosystem.to_s
+               when "ruby" then "rubygems"
+               when "python" then "pypi"
+               when "javascript" then "npm"
+               when "php" then "packagist"
+               when "perl" then "cpan"
+               when "bash" then "gnubash"
+               when "go" then "go"
+               when "java" then "java"
+               when "lua" then "lua"
+               end %>
+            <% style_params = "?style=for-the-badge&label=FLOSS%20Funding" %>
+            <% logo_params = logo2.present? ? "&logo=#{ERB::Util.url_encode(logo2)}&logoColor=white" : "" %>
+            <% img_url2 = "https://img.shields.io/badge/
+              #{encoded_label2}-brightgreen#{style_params}#{logo_params}".gsub("\n", "") %>
+            <% link_url2 = @activation_key.project_url %>
+            <% if link_url2.present? %>
+              <a href="<%= link_url2 %>" target="_blank" rel="noopener">
+                <img src="<%= img_url2 %>" alt="FLOSS Funding badge" />
+              </a>
+            <% else %>
+              <img src="<%= img_url2 %>" alt="FLOSS Funding badge" />
+            <% end %>
+          </div>
+        </div>
+        <div class="mt-4">
+          <p class="text-sm text-gray-600 mb-2">Markdown (for-the-badge):</p>
+          <pre class="p-4 bg-gray-100 rounded overflow-x-auto text-sm"><code><%=
+            begin
+              if link_url2.present?
+                "[![Static Badge](#{img_url2})](#{link_url2})"
+              else
+                "![Static Badge](#{img_url2})"
+              end
+            end
+          %></code></pre>
+        </div>
       <% else %>
         <p class="mt-2 text-gray-600">Provide project name and URL to generate your badge.</p>
       <% end %>
