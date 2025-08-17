@@ -52,13 +52,16 @@ group :development, :test do
   #gem "rubocop-rails-omakase", require: false
   gem "betterlint"
   gem "rubocop-lts", "~> 24.0", ">= 24.0.2"
-  gem "standard", ">= 1.42"
+  gem "standard", ">= 1.50"
   gem "standard-rails"
 
   # Testing
+  gem "kettle-soup-cover", "~> 1.0", ">= 1.0.10", require: false
   gem "rspec-rails", "~> 6.1"
   gem "rspec-block_is_expected", "~> 1.0", ">= 1.0.6"
-  gem "kettle-soup-cover", "~> 1.0", ">= 1.0.10", require: false
+  gem "rspec-stubbed_env", "~> 1.0", ">= 1.0.4"
+  gem "silent_stream", "~> 1.0", ">= 1.0.11"
+  gem "timecop", "~> 0.9", ">= 0.9.10"
 end
 
 group :development do

@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   resources :accounts, only: [:new, :create]
 
   # Password resets
-  resources :password_resets, only: [:new, :create], path: 'password_resets'
-  get 'password_resets/:token/edit', to: 'password_resets#edit', as: :edit_password_reset
-  patch 'password_resets/:token', to: 'password_resets#update', as: :password_reset
+  resources :password_resets, only: [:new, :create], path: "password_resets"
+  get "password_resets/:token/edit", to: "password_resets#edit", as: :edit_password_reset
+  patch "password_resets/:token", to: "password_resets#update", as: :password_reset
 
   # Activation keys
   resources :activation_keys, only: [:index, :new, :create, :show, :edit, :update]

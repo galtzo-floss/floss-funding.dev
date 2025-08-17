@@ -61,7 +61,7 @@ Rails.application.configure do
   # Set host to be used by links generated in mailer templates (e.g. password reset URLs).
   # Prefer APP_HOST if provided (e.g. floss-funding-qa.fly.dev)
   default_host = ENV.fetch("APP_HOST", "floss-funding-qa.fly.dev")
-  config.action_mailer.default_url_options = { host: default_host }
+  config.action_mailer.default_url_options = {host: default_host}
 
   # DreamHost SMTP via SSL (port 465). Values come from environment variables set as Fly secrets.
   config.action_mailer.delivery_method = :smtp
@@ -74,7 +74,7 @@ Rails.application.configure do
     domain: ENV.fetch("SMTP_DOMAIN", "galtzo.com"),
     ssl: true,
     tls: true,
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

@@ -24,6 +24,6 @@ if ENV["ENABLE_SANITIZE_EMAIL"]&.downcase == "true"
     config.whitelist = [/\A.+@galtzo\.com\z/i, /\A.+@floss-funding\.dev\z/i]
 
     # Alternatively, you could use an activation proc, but force_sanitize already ensures it.
-    config.activation_proc = Proc.new { true }
+    config.activation_proc = proc { true }
   end
 end

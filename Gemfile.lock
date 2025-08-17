@@ -402,6 +402,7 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
+    rspec-stubbed_env (1.0.4)
     rspec-support (3.13.4)
     rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
@@ -487,6 +488,9 @@ GEM
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     shellany (0.0.1)
+    silent_stream (1.0.11)
+      logger (~> 1.2)
+      version_gem (>= 1.1.8, < 3)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -572,6 +576,7 @@ GEM
     thruster (0.1.15-aarch64-linux)
     thruster (0.1.15-x86_64-darwin)
     thruster (0.1.15-x86_64-linux)
+    timecop (0.9.10)
     timeout (0.4.3)
     turbo-rails (2.0.16)
       actionpack (>= 7.1.0)
@@ -636,19 +641,22 @@ DEPENDENCIES
   redis (~> 5.4)
   rspec-block_is_expected (~> 1.0, >= 1.0.6)
   rspec-rails (~> 6.1)
+  rspec-stubbed_env (~> 1.0, >= 1.0.4)
   rspec_junit_formatter (~> 0.6)
   rubocop-lts (~> 24.0, >= 24.0.2)
   sanitize_email (~> 2.0, >= 2.0.10)
   selenium-webdriver
+  silent_stream (~> 1.0, >= 1.0.11)
   solid_cable
   solid_cache
   solid_queue
   sqlite3 (>= 2.1)
-  standard (>= 1.42)
+  standard (>= 1.50)
   standard-rails
   stimulus-rails
   tailwindcss-rails (~> 2.6)
   thruster
+  timecop (~> 0.9, >= 0.9.10)
   turbo-rails
   tzinfo-data
   web-console

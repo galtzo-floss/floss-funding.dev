@@ -7,9 +7,17 @@ require "kettle-soup-cover"
 # We provide a preconfigured version compatible with Rails 8
 require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
+IS_CI = ENV.fetch("CI", "false").casecmp("true") == 0
 
 # Last thing before loading the app-under-test is code coverage.
-require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
+begin
+  require "kettle-soup-cover"
+  require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
+rescue LoadError => error
+  # check the error message and re-raise when unexpected
+  raise error unless error.message.include?("kettle")
+end
+
 require File.expand_path("../config/environment", __dir__)
 
 # Prevent database truncation if the environment is production

@@ -1,5 +1,17 @@
 # frozen_string_literal: true
 
+DEBUGGING = ENV.fetch("DEBUG", "false").casecmp("true").zero?
+
+# External gems
+require "debug" if DEBUGGING
+require "silent_stream"
+require "rspec/block_is_expected"
+require "rspec/block_is_expected/matchers/not"
+require "rspec/stubbed_env"
+
+# Config files
+require "config/timecop"
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -39,4 +51,17 @@ RSpec.configure do |config|
 
   # Filter Rails gems and noisy backtrace lines
   config.filter_gems_from_backtrace "rails", "activesupport", "activerecord", "actionpack"
+
+  config.include(SilentStream)
+
+  config.around(:each) do |example|
+    # Silence STDOUT for examples NOT tagged with :check_output
+    if DEBUGGING || example.metadata[:check_output]
+      example.run
+    else
+      silence_stream($stdout) do
+        example.run
+      end
+    end
+  end
 end

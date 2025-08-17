@@ -163,6 +163,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v3.13.5, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v3.13.5, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v6.1.5, mise: 3.4.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-stubbed_env (v1.0.4, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.13.4, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec_junit_formatter (v0.6.0, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop (v1.75.8, mise: 3.4.5) [gem]" level="application" />
@@ -187,6 +188,7 @@
     <orderEntry type="library" scope="PROVIDED" name="securerandom (v0.4.1, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.35.0, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="shellany (v0.0.1, mise: 3.4.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="silent_stream (v1.0.11, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov (v0.22.0, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov-cobertura (v3.0.0, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov-console (v0.9.4, mise: 3.4.5) [gem]" level="application" />
@@ -210,6 +212,7 @@
     <orderEntry type="library" scope="PROVIDED" name="terminal-table (v4.0.0, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.4.0, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thruster (v0.1.15, mise: 3.4.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="timecop (v0.9.10, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeout (v0.4.3, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbo-rails (v2.0.16, mise: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.6, mise: 3.4.5) [gem]" level="application" />
