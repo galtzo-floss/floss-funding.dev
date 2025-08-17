@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   # Auth
   resource :session, only: [:new, :create, :destroy]
+  # OmniAuth callbacks
+  match "/auth/:provider/callback", to: "sessions#omniauth", via: [:get, :post]
+  match "/auth/failure", to: "sessions#failure", via: [:get, :post]
+
   resources :accounts, only: [:new, :create]
 
   # Password resets

@@ -100,7 +100,13 @@ gem "sanitize_email", "~> 2.0", ">= 2.0.10"
 
 # Authentication via OmniAuth Identity (email/password only)
 gem "omniauth", "~> 2.1"
+# CSRF protection for OmniAuth 2.x
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+# Provider strategies
 gem "omniauth-identity", "~> 3.0"
+gem "omniauth-github", "~> 2.0"
+# Base OAuth2 strategy (used for custom Codeberg strategy)
+gem "omniauth-oauth2", "~> 1.8"
 # Password hashing for Identity
 gem "bcrypt", "~> 3.1"
 
