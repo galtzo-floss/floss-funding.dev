@@ -6,20 +6,39 @@
       <div class="flex flex-col items-start">
         <%= image_tag 'https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px-blank.svg', alt: 'Galtzo FLOSS Logo - no words by Aboling0, CC BY-SA 4.0', class: 'h-16 w-16 mb-6' %>
         <h2 class="text-3xl font-extrabold text-van-cleef">Welcome to FLOSS Funding</h2>
-        <p class="mt-2 text-sm text-gray-600">Create an account, log in, or reset your password</p>
+        <% if current_account %>
+          <p class="mt-2 text-sm text-gray-600">Log out, or reset your password</p>
+        <% else %>
+          <p class="mt-2 text-sm text-gray-600">Create an account, log in, or reset your password</p>
+      <% end %>
       </div>
       <div class="grid grid-cols-1 gap-3 mt-6">
-        <%= link_to new_account_path, class: 'w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-christi hover:bg-bright-green' do %>
-          <%= lucide_icon 'plus', class: 'w-4 h-4' %>
-          <span>Create Account</span>
-        <% end %>
-        <%= link_to new_session_path, class: 'w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-limeade hover:bg-bright-green' do %>
-          <%= lucide_icon 'key-square', class: 'w-4 h-4' %>
-          <span>Log In</span>
-        <% end %>
-        <%= link_to new_session_path, class: 'w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tamarillo hover:bg-van-cleef' do %>
-          <%= lucide_icon 'rotate-ccw', class: 'w-4 h-4' %>
-          <span>Reset Password</span>
+        <% if current_account %>
+          <%= link_to new_activation_key_path, class: 'w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-christi hover:bg-bright-green' do %>
+            <%= lucide_icon 'key', class: 'w-4 h-4' %>
+            <span>New activation key</span>
+          <% end %>
+          <%= link_to session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?' }, class: 'w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tamarillo hover:bg-van-cleef' do %>
+            <%= lucide_icon 'log-out', class: 'w-4 h-4' %>
+            <span>Log out</span>
+          <% end %>
+          <%= link_to new_password_reset_path, class: 'w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-limeade hover:bg-bright-green' do %>
+            <%= lucide_icon 'rotate-ccw', class: 'w-4 h-4' %>
+            <span>Reset Password</span>
+          <% end %>
+        <% else %>
+          <%= link_to new_account_path, class: 'w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-christi hover:bg-bright-green' do %>
+            <%= lucide_icon 'plus', class: 'w-4 h-4' %>
+            <span>Create Account</span>
+          <% end %>
+          <%= link_to new_session_path, class: 'w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-limeade hover:bg-bright-green' do %>
+            <%= lucide_icon 'key-square', class: 'w-4 h-4' %>
+            <span>Log In</span>
+          <% end %>
+          <%= link_to new_password_reset_path, class: 'w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tamarillo hover:bg-van-cleef' do %>
+            <%= lucide_icon 'rotate-ccw', class: 'w-4 h-4' %>
+            <span>Reset Password</span>
+          <% end %>
         <% end %>
       </div>
     </div>

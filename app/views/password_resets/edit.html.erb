@@ -1,0 +1,18 @@
+<div class="max-w-md mx-auto px-4">
+  <h1 class="text-2xl font-bold text-van-cleef mb-4">Choose a new password</h1>
+  <p class="text-sm text-gray-600 mb-6">Enter and confirm your new password.</p>
+
+  <%= form_with url: password_reset_path(token: params[:token]), method: :patch, local: true do |f| %>
+    <div class="mb-4">
+      <%= label_tag :password, 'New password', class: 'block text-sm font-medium text-van-cleef mb-1' %>
+      <%= password_field_tag :password, nil, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi' %>
+    </div>
+    <div class="mb-4">
+      <%= label_tag :password_confirmation, 'Confirm new password', class: 'block text-sm font-medium text-van-cleef mb-1' %>
+      <%= password_field_tag :password_confirmation, nil, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-christi focus:ring-christi' %>
+    </div>
+    <div>
+      <%= submit_tag 'Reset password', class: 'inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-christi hover:bg-bright-green focus:outline-none' %>
+    </div>
+  <% end %>
+</div>
