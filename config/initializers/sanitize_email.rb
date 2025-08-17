@@ -13,9 +13,6 @@ if ENV["ENABLE_SANITIZE_EMAIL"]&.downcase == "true"
     # Keep the original recipient visible in the subject for debugging.
     config[:use_actual_email_prepended_to_subject] = true
 
-    # Always sanitize in this environment.
-    config[:force_sanitize] = true
-
     # Ensure activation in production as well (we drive activation with the env var).
     config[:local_environments] = []
 
@@ -23,7 +20,6 @@ if ENV["ENABLE_SANITIZE_EMAIL"]&.downcase == "true"
     # Allow galtzo.com addresses to go through as-is.
     config[:whitelist] = [/\A.+@galtzo\.com\z/i, /\A.+@floss-funding\.dev\z/i]
 
-    # Alternatively, you could use an activation proc, but force_sanitize already ensures it.
     config[:activation_proc] = proc { true }
   end
 end
