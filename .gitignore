@@ -45,6 +45,7 @@
 /coverage/
 /spec/reports/
 /results/
+/spec/examples.txt
 
 # Documentation
 /.yardoc/
