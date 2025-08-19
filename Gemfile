@@ -114,7 +114,7 @@ gem "bcrypt", "~> 3.1"
 gem "enumerate_it", "~> 4.1"
 
 # Tailwind CSS integration
-gem "tailwindcss-rails", "~> 2.6"
+gem "tailwindcss-rails", "~> 4.3"
 
 gem "lucide-rails"
 
