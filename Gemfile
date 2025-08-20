@@ -62,7 +62,7 @@ group :development, :test do
 
   # Testing
   gem "kettle-soup-cover", "~> 1.0", ">= 1.0.10", require: false
-  gem "rspec-rails", "~> 6.1"
+  gem "rspec-rails", "~> 8.0"
   gem "rspec-block_is_expected", "~> 1.0", ">= 1.0.6"
   gem "rspec-stubbed_env", "~> 1.0", ">= 1.0.4"
   gem "silent_stream", "~> 1.0", ">= 1.0.11"
