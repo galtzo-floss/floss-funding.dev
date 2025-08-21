@@ -540,7 +540,7 @@ GEM
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     shellany (0.0.1)
-    silent_stream (1.0.11)
+    silent_stream (1.0.12)
       logger (~> 1.2)
       version_gem (>= 1.1.8, < 3)
     simplecov (0.22.0)
@@ -712,7 +712,7 @@ DEPENDENCIES
   selenium-webdriver
   sentry-rails
   sentry-ruby
-  silent_stream (~> 1.0, >= 1.0.11)
+  silent_stream (~> 1.0)
   solid_cable
   solid_cache
   solid_queue
